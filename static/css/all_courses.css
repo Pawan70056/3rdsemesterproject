@@ -1,0 +1,29 @@
+/* Custom CSS for the course listing */
+
+.course-listing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -15px;
+}
+
+.course-item {
+    width: calc(50% - 30px);
+    margin: 0 15px 30px;
+}
+
+.course-item .box {
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+.course-item .box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.course-item .box .details {
+    margin-top: 15px;
+}
+

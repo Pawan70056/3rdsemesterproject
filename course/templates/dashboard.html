@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="home swiper" id="home">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide container">
+            <div class="home-text">
+                <span>We are Academi-Connect</span>
+                <h1>Choose The Best Notes <br>For You</h1>
+                <a href="#" class="button"> Learn Now<i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            <img src="{% static "img/machine learning.png" %}" alt="">
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide container">
+            <div class="home-text">
+                <span>We are Academi-Connect</span>
+                <h1>Choose The Best Notes <br>For You</h1>
+                <a href="#" class="button">Learn Now<i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+            <img src="{% static "img/studying.png" %}" alt="">
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide container">
+                <div class="home-text">
+                    <span>We are Academi-Connect</span>
+                    <h1>Choose The Best Notes <br>For You</h1>
+                    <a href="#" class="button">Learn Now<i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                <img src="{% static "img/graduate.png" %}" alt="">
+                </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      
+</section>
+<!-- courses -->
+<section class="courses" id="courses">
+    <div class="heading">
+        <h1>Course View <br><span>Courses</span></h1>
+            <a href="/all-courses" class="button">View All<i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+    <!-- Container Content -->
+    <div class="courses-conatiner">
+        <!-- Box 1 -->
+        <div class="box box1">
+            <img src="{% static "img/law.png" %}" alt="">
+            <h2>Law</h2>
+            <span>8 Items</span>
+            <i class='bx bx-right-arrow-alt'></i>
+        </div>
+        <!-- Box 2 -->
+        <div class="box box2">
+            <img src="{% static "img/mgmt.png" %}" alt="">
+            <h2>Management</h2>
+            <span>6 Items</span>
+            <i class='bx bx-right-arrow-alt'></i>
+        </div>
+        <!-- Box 3 -->
+        <div class="box box3">
+            <img src="{% static "img/science.png" %}" alt="">
+            <h2>Science</h2>
+            <span>6 Items</span>
+            <i class='bx bx-right-arrow-alt'></i>
+        </div>
+        <!-- Box 4 -->
+        <div class="box box4">
+            <img src="{% static "img/A level.png" %}" alt="">
+            <h2>A Level</h2>
+            <span>5 Items</span>
+            <i class='bx bx-right-arrow-alt'></i>
+        </div>
+        <!-- Box 2 -->
+        <div class="box box5">
+            <img src="{% static "img/diploma.png" %}" alt="">
+            <h2>Diploma</h2>
+            <span>6 Items</span>
+            <i class='bx bx-right-arrow-alt'></i>
+        </div>
+    </div> 
+</section>
+<!-- progress -->
+<section class="progress" id="progress">
+    <div class="heading">
+        <h1>Your Progress</h1>
+            <a href="#" class="button">Watch<i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+    <!-- Progress Bar -->
+    <div class="progress-container"></div>
+    <div class="box">
+    <img src="{% static "img/progress.png" %}" alt="">
+    <span>Progress Rate</span> 
+    <h2>Aspire to inspire</h2>
+    <i class='bx bx-trending-up'></i>
+    <i class='bx bx-heart' ></i>
+    </div>
+</section>
+    <!-- Students -->
+    <section class="students" id="students">
+        <h2>Why Students Love Us?</h2>
+        <!-- Student Content -->
+        <div class="students-container">
+            <!-- Review 1 -->
+            <div class="box">
+                <i class='bx bxs-quote-alt-left'></i>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <p>Helpful Notes</p>
+                <div class="review-profile">
+                    <img src="{% static "img/student1.png" %}" alt="">
+                    <h3>Mina Doe</h3>
+                </div>
+            </div>
+            <!-- Review 2 -->
+            <div class="box">
+                <i class='bx bxs-quote-alt-left'></i>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+                <p>Easy to understand</p>
+                <div class="review-profile">
+                    <img src="{% static "img/student2.png" %}" alt="">
+                    <h3>Rehman Mittal</h3>
+                </div>
+            </div>
+            <!-- Review 3 -->
+            <div class="box">
+                <i class='bx bxs-quote-alt-left'></i>
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                </div>
+                <p>Nice Website</p>
+                <div class="review-profile">
+                    <img src="{% static "img/student3.png" %}" alt="">
+                    <h3>John Donal</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- about -->
+<section class="about" id="about"></section>
+    <div class="about-text">
+        <h1><span>About Us</span></h1>
+        <p>Introducing AcademiConnect. We offer high school notes. For everyone, we have simple and effective notes.</p>
+        <style>
+            .btn{
+                display:block;
+                margin: auto;
+            }
+        </style>
+        <a href="#" class="btn">Learn More<i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+</section>
+{% endblock content %}
+    
