@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Chapters</title>
+    <style>
+        /* Styles for collapsible list */
+        .chapters-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .chapters-list {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .chapter-item {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .chapter-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .chapter-item.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .chapter-content {
+            flex: 2;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chapters-container">
+    <div class="chapters-list">
+        <div class="chapter-item" onclick="showChapterContent(1)" id="chapter1">Chapter 1</div>
+        <div class="chapter-item" onclick="showChapterContent(2)" id="chapter2">Chapter 2</div>
+        <div class="chapter-item" onclick="showChapterContent(3)" id="chapter3">Chapter 3</div>
+        <!-- Add more chapters as needed -->
+    </div>
+    <div class="chapter-content" id="chapterContent">
+        <!-- Content will appear here when a chapter is clicked -->
+        <p>Select a chapter to read its content.</p>
+    </div>
+</div>
+
+<script>
+    function showChapterContent(chapterNumber) {
+        // Get the chapter content container
+        const chapterContent = document.getElementById("chapterContent");
+
+        // Clear previous content
+        chapterContent.innerHTML = "";
+
+        // Remove active class from all chapter items
+        const chapterItems = document.querySelectorAll('.chapter-item');
+        chapterItems.forEach(item => {
+            item.classList.remove('active');
+        });
+
+        // Add active class to the clicked chapter item
+        const activeChapter = document.getElementById(`chapter${chapterNumber}`);
+        activeChapter.classList.add('active');
+
+        // Add content based on the clicked chapter number
+        switch (chapterNumber) {
+            case 1:
+                chapterContent.innerHTML = "<h2>Chapter 1</h2><p>This is the content of Chapter 1...</p>";
+                break;
+            case 2:
+                chapterContent.innerHTML = "<h2>Chapter 2</h2><p>This is the content of Chapter 2...</p>";
+                break;
+            case 3:
+                chapterContent.innerHTML = "<h2>Chapter 3</h2><p>This is the content of Chapter 3...</p>";
+                break;
+            // Add more cases for additional chapters
+            default:
+                chapterContent.innerHTML = "<p>No content available for this chapter.</p>";
+        }
+    }
+</script>
+
+</body>
+</html>

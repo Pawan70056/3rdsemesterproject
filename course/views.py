@@ -6,11 +6,10 @@ from .models import Course
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-
-
-
 def all_courses(request):
-    # Retrieve all courses from the database
-    courses = Course.objects.all()
-    return render(request, 'all_courses.html', {'courses': courses})
+     return render(request, 'law.html')
+
+def details(request):
+     return render (request, 'subject_overview.html')
+
 

@@ -1,50 +1,29 @@
-<!-- courses.html -->
+{% extends 'base.html' %} 
 
-{% extends 'base.html' %} <!-- Assuming a base template exists -->
 {% load static %}
-
-{% block head %}
-<link rel="stylesheet" href="{% static "css/all_courses.css" %}">
-
-{% endblock head %}
-
 {% block content %}
-<div class="section">
-    <div class="container">
-        <h2>{{ category.title }}</h2> <!-- Displaying category title -->
-        <div class="course-listing">
-            {% if courses %}
-                {% for course in courses %}
-                    <div class="course-item">
-                        <article class="box">
-                            <figure>
-                                <a href="#" class="hover-effect popup-gallery">
-                                    <img width="270" height="160" alt="{{ course.title }}" src="{{ course.image_url }}">
-                                </a>
-                            </figure>
-                            <div class="details">
-                                <span class="price"><small>avg/night</small>{{ course.price }}</span>
-                                <h4 class="box-title">{{ course.title }}<small>{{ course.location }}</small></h4>
-                                <div class="feedback">
-                                    <!-- Replace with appropriate feedback/stars representation -->
-                                    <div class="fa fa-star" title="4 stars">
-                                        <span style="width: 80%;" class="five-stars"></span>
-                                    </div>
-                                    <span class="review">{{ course.reviews }} reviews</span>
-                                </div>
-                                <p class="description">{{ course.description }}</p>
-                                <div class="action">
-                                    <a class="button btn-small" href="#">BOOK</a>
-                                    <a class="button btn-small yellow popup-map" href="#" data-box="{{ course.map_location }}">VIEW ON MAP</a>
-                                </div>
-                            </div>
-                        </article>
+<div class="container">
+    <h2 class="mt-5 mb-4">Courses</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% if courses %}
+            {% for course in courses %}
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ course.image_url }}" class="card-img-top" alt="{{ course.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.title }}</h5>
+                            <p class="card-text">{{ course.description }}</p>
+                            <p class="card-text fw-bold">{{ course.price }}</p>
+                            <a href="#" class="btn btn-primary">PURCHASE</a>
+                        </div>
                     </div>
-                {% endfor %}
-            {% else %}
-                <p>No courses available in this category.</p>
-            {% endif %}
-        </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col">
+                <p>No courses available.</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
