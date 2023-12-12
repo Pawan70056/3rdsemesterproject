@@ -39,7 +39,8 @@ def coursebycategory(request, category_id):
     # Pass the category and related courses to the template context
     return render(request, 'courseByCategory.html', {'category': category, 'courses_in_category': courses_in_category})
 
-def details(request):
-     return render (request, 'subject_overview.html')
 
+def course_detail(request, course_id):
+    course = get_object_or_404(Course, pk=course_id)
+    return render(request, 'courseDetails.html', {'course': course})
 

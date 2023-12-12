@@ -6,10 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.dashboard, name = 'dashboard'),
-    # Endpoint to get all courses
     path('all-courses/', views.all_courses, name='all_courses'),
     path('coursebycategory/<int:category_id>/', views.coursebycategory, name='course-by-category'),
-
-    path('subjets_details/', views.details, name='details'),
+    path('course/<int:course_id>/', views.course_detail, name='course_detail'),
 
 ]

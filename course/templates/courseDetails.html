@@ -1,7 +1,7 @@
 {% extends "base.html" %}
    {% load static %}
     {% block head %}
-    <link rel="stylesheet" href="{% static 'css/subject_overview.css' %}">
+    <link rel="stylesheet" href="{% static 'css/courseDetails.css' %}">
     <style>
       /* Style for the table */
       table {
@@ -28,22 +28,21 @@
   <div class="container">
     <div class="course-details">
       <div class="image-section">
-        <img src="#" alt="Course Image" />
+        <img src="{{ course.thumbnail.url }}" alt="Course Image" />
       </div>
       <div class="details-section">
         <!-- Course details here -->
-        <span class="tag-clickable"> Notes</span>
-        <span class="tag-clickable"> Python</span>
-
-        <h1>100 Days of Code: The Complete Python Pro Bootcamp for 2023</h1>
-        <p>
-          Master Python by building 100 projects in 100 days. Learn data
-          science, automation, build websites, games and apps!..
-        </p>
-        <h3>Price: $19.99</h3>
+        {% for tag in course.tags.all %}
+          <span class="tag-clickable">{{ tag }}</span>
+        {% endfor %}
+  
+        <h1>{{ course.title }}</h1>
+        <p>{{ course.description|slice:":200"}}</p>
+        <h3>Price: ${{ course.price }}</h3>
         <!-- Additional course details -->
         <button class="purchase-btn">Purchase</button>
       </div>
+    </div>
     </div>
 
     <div class="tabs">
