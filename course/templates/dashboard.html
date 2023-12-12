@@ -48,43 +48,16 @@
     </div>
     <!-- Container Content -->
     <div class="courses-conatiner">
-        <!-- Box 1 -->
+        {% for category in course_categories %}
         <div class="box box1">
-            <img src="{% static "img/law.png" %}" alt="">
-            <h2>Law</h2>
-            <span>8 Items</span>
-            <i class='bx bx-right-arrow-alt'>
-                <a href=""></a>
-            </i>
+            <img src="{{ category.thumbnail.url }}" alt="{{ category.name }}">
+            <h2>{{ category.name }}</h2>
+            <span>{{ category.courses.count }} Items</span>
+            <a href="{% url 'course-by-category' category.id %}"> <i class='bx bx-right-arrow-alt'></i></a>
         </div>
-        <!-- Box 2 -->
-        <div class="box box2">
-            <img src="{% static "img/mgmt.png" %}" alt="">
-            <h2>Management</h2>
-            <span>6 Items</span>
-            <i class='bx bx-right-arrow-alt'></i>
-        </div>
-        <!-- Box 3 -->
-        <div class="box box3">
-            <img src="{% static "img/science.png" %}" alt="">
-            <h2>Science</h2>
-            <span>6 Items</span>
-            <i class='bx bx-right-arrow-alt'></i>
-        </div>
-        <!-- Box 4 -->
-        <div class="box box4">
-            <img src="{% static "img/A level.png" %}" alt="">
-            <h2>A Level</h2>
-            <span>5 Items</span>
-            <i class='bx bx-right-arrow-alt'></i>
-        </div>
-        <!-- Box 2 -->
-        <div class="box box5">
-            <img src="{% static "img/diploma.png" %}" alt="">
-            <h2>Diploma</h2>
-            <span>6 Items</span>
-            <i class='bx bx-right-arrow-alt'></i>
-        </div>
+        {% endfor %}
+
+       
     </div> 
 </section>
 <!-- progress -->
