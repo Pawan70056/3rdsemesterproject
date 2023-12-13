@@ -39,9 +39,9 @@
         <h1>{{ course.title }}</h1>
         <p>{{ course.description|slice:":200"}}</p>
         <!-- Additional course details -->
-        <p>{{ course.instructor}}</p>
+        <p class="authorname">{{ course.instructor}}</p>
+        <a href="{% url 'read' course.id %}" class="purchase-btn">Enroll</a>
 
-        <button class="purchase-btn">Enroll</button>
       </div>
     </div>
     </div>

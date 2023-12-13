@@ -1,16 +1,15 @@
 {% extends "base.html" %}
-   {% load static %}
+{% load static %}
 
-   {% block head %}
-<link rel="stylesheet" href="{% static 'css/readCourse.css' %}">
-   
-   {% endblock head %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/readCourse.css' %}">
+{% endblock head %}
 
-  {% block content %}
-  <div class="chapters-container">
+{% block content %}
+<div class="chapters-container">
     <div class="chapters-list">
         {% for chapter in chapters %}
-            <div class="chapter-item" onclick="showChapterContent({{ chapter.id }})" id="chapter{{ chapter.id }}">{{ chapter.title }}</div>
+            <div class="chapter-item" onclick="showChapterContent('{{ chapter.id }}')" id="chapter{{ chapter.id }}">{{ chapter.title }}</div>
         {% endfor %}
     </div>
     <div class="chapter-content" id="chapterContent">
@@ -37,7 +36,13 @@
         fetch(`/get_chapter_content/${chapterId}/`)
             .then(response => response.json())
             .then(data => {
-                chapterContent.innerHTML = `<h2>${data.chapter_title}</h2><p>${data.content}</p>`;
+                if (data.content_type === 'text') {
+                    chapterContent.innerHTML = `<h2>${data.chapter_title}</h2><p>${data.text_content}</p>`;
+                } else if (data.content_type === 'pdf') {
+                    chapterContent.innerHTML = `<object data="${data.pdf_url}" type="application/pdf" width="100%" height="500px">
+                        <p>PDF viewer is not supported in your browser. <a href="${data.pdf_url}">Click here to view PDF.</a></p>
+                    </object>`;
+                }
             })
             .catch(error => {
                 console.error('Error fetching chapter content:', error);
@@ -45,5 +50,4 @@
             });
     }
 </script>
-
-{%endblock%}
+{% endblock script %}

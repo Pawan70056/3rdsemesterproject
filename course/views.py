@@ -1,6 +1,7 @@
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 
-from .models import Course, CourseCategory
+from .models import Chapter, Course, CourseCategory
 
 
 def dashboard(request):
@@ -50,8 +51,10 @@ def enroll(request,course_id):
 
 
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
+
 from .models import Course
+
 
 def read(request, course_id):
     # Retrieve the specific course based on course_id
@@ -68,3 +71,16 @@ def read(request, course_id):
     return render(request, 'readCourse.html', {'course': course, 'chapters': chapters, 'chapter_contents': chapter_contents})
 
 
+
+
+
+def get_chapter_content(request, chapter_id):
+    try:
+        chapter = Chapter.objects.get(pk=chapter_id)
+        data = {
+            'chapter_title': chapter.title,
+            'content': chapter.content  # Replace 'content' with the field name in your Chapter model containing the content
+        }
+        return JsonResponse(data)
+    except Chapter.DoesNotExist:
+        return JsonResponse({'error': 'Chapter not found'}, status=404)

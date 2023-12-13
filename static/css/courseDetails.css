@@ -77,7 +77,7 @@
 }
 
 .purchase-btn {
-    padding: 10px 20px;
+    margin: 10px;
     border: none;
     background-color: #ff0000; /* Red filled color */
     color: #fff;
@@ -202,6 +202,13 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.authorname {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 
 .author-experience {
     color: #666;
