@@ -44,3 +44,27 @@ def course_detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     return render(request, 'courseDetails.html', {'course': course})
 
+def enroll(request,course_id):
+    pass
+
+
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import Course
+
+def read(request, course_id):
+    # Retrieve the specific course based on course_id
+    course = get_object_or_404(Course, pk=course_id)
+    
+    # Retrieve all chapters related to the course and their content
+    chapters = course.chapters.all()
+    chapter_contents = {}
+    
+    for chapter in chapters:
+        chapter_contents[chapter] = chapter.contents.all()
+
+    # Render the content of the course in a template
+    return render(request, 'readCourse.html', {'course': course, 'chapters': chapters, 'chapter_contents': chapter_contents})
+
+

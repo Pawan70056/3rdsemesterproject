@@ -23,7 +23,7 @@
                 <div class="card-footer">
                     <p class="price">{{ course.price }}</p>
 
-                    <a href="#" class="purchase-btn">Enroll</a>
+                    <a href="{% url 'read' course.id %}" class="purchase-btn">Enroll</a>
                 </div>
             </div>
         {% endfor %}

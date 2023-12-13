@@ -1,0 +1,33 @@
+  /* Styles for collapsible list */
+  .chapters-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.chapters-list {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.chapter-item {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chapter-item:hover {
+    background-color: #f0f0f0;
+}
+
+.chapter-item.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.chapter-content {
+    flex: 2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}

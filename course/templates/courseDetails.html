@@ -38,8 +38,9 @@
   
         <h1>{{ course.title }}</h1>
         <p>{{ course.description|slice:":200"}}</p>
-<h3>Price: ${{ course.price }}</h3>
         <!-- Additional course details -->
+        <p>{{ course.instructor}}</p>
+
         <button class="purchase-btn">Enroll</button>
       </div>
     </div>
@@ -121,7 +122,7 @@
 
       <div id="author" class="tabcontent author-container">
               <img class="author-image" src="{% static "img/student3.png" %}" alt="Author Profile">
-              <div class="author-name">John Doe</div>
+              <div class="author-name">{{ course.instructor}}</div>
               <div class="author-experience">10+ years of experience</div>
               <div class="author-description">
                   <p>About the author:</p>
