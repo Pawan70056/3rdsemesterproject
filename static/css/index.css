@@ -99,21 +99,9 @@ header{
     z-index: 10001;
     display: none;
 }
-.container{
-    position: relative;
-    width: 100%;
-    min-height: 640px;
-    display: flex;
-    align-items: left;
-    background: url(https://img.freepik.com/free-photo/abstract-luxury-plain-blur-grey-black-gradient-used-as-background-studio-wall-display-your-products_1258-63749.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
+
 .container img{
     width: 320px;
-    position:absolute;
     right: 200px;
     top: 200px;
     height: auto;

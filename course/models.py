@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 class CourseCategory(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    description = RichTextField()
     thumbnail = models.ImageField()
 
     def __str__(self):
@@ -14,10 +14,9 @@ class CourseCategory(models.Model):
 
 class Course(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description =RichTextField()
     thumbnail = models.ImageField()
     instructor = models.CharField(max_length=50)
-    duration = models.DateTimeField()
     category = models.ForeignKey(CourseCategory, related_name='courses', on_delete=models.CASCADE)
     
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
