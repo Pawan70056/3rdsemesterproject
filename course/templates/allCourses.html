@@ -17,7 +17,7 @@
                     <a href="{% url 'course_detail' course.id %}">
                         <h2>{{ course.title }}</h2>
                     </a>
-                    <p>{{ course.description | slice:":100" }}</p>
+                    <p>{{ course.description| striptags | slice:":100" }}</p>
                     <p class='test-disabled'>{{ course.instructor }}</p>
                 </div>
                 <div class="card-footer">

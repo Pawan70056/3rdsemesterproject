@@ -37,7 +37,7 @@
         {% endfor %}
   
         <h1>{{ course.title }}</h1>
-        <p>{{ course.description|slice:":200"}}</p>
+        <p>{{ course.description| striptags|slice:":200"}}</p>
         <!-- Additional course details -->
         <p class="authorname">{{ course.instructor}}</p>
         <a href="{% url 'read' course.id %}" class="purchase-btn">Enroll</a>
