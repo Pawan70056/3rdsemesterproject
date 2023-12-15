@@ -21,7 +21,8 @@
                     <p class='test-disabled'>{{ course.instructor }}</p>
                 </div>
                 <div class="card-footer">
-                    <p class="price">{{ course.price }}</p>
+                    {% include 'includes/rating.html' %}
+
                     <a href="{% url 'read' course.id %}" class="purchase-btn">Enroll</a>
                 </div>
             </div>

@@ -6,8 +6,13 @@
 {% endblock head %}
 
 {% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> &raquo; <a href="/all-courses">Courses</a> &raquo; 
+</div>
 <div class="chapters-container">
+    
     <div class="chapters-list">
+      
         {% for chapter in chapters %}
             <div class="chapter-item" onclick="showChapterContent('{{ chapter.id }}')" id="chapter{{ chapter.id }}">{{ chapter.title }}</div>
         {% endfor %}
