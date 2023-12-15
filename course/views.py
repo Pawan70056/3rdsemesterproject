@@ -1,3 +1,4 @@
+import json
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 
@@ -74,13 +75,33 @@ def read(request, course_id):
 
 
 
+from django.http import JsonResponse
+
+from .models import Chapter, Content
+
+
 def get_chapter_content(request, chapter_id):
     try:
         chapter = Chapter.objects.get(pk=chapter_id)
+        contents = Content.objects.filter(chapter=chapter)
+
+        # Serializing text content and pdf file paths for the chapter
+        serialized_contents = []
+        for content in contents:
+            serialized_content = {
+                'content_type': content.content_type,
+                'text_content': content.text_content if content.content_type == 'text' else None,
+                'pdf_file': content.pdf_file.url if content.content_type == 'pdf' else None
+            }
+            serialized_contents.append(serialized_content)
+
         data = {
             'chapter_title': chapter.title,
-            'content': chapter.content  # Replace 'content' with the field name in your Chapter model containing the content
+            'contents': serialized_contents
         }
+        # print(json.dumps(data, indent=4))  # Printing the JSON data
+
         return JsonResponse(data)
     except Chapter.DoesNotExist:
         return JsonResponse({'error': 'Chapter not found'}, status=404)
+
