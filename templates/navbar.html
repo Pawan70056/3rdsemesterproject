@@ -18,9 +18,23 @@
         
     </ul>
     <!-- profile -->
-    <div class="profile">
-        <i class='bx bxs-user-circle'></i>
-        <span>Aakriti Yadav</span>
-        <i class='bx bx-caret-down' ></i>
+    {% if user.is_authenticated %}
+    <div class="dropdown">
+        <button class="dropbtn">
+            <i class='bx bxs-user-circle'></i>
+            <span>{{ user.username }}</span>
+            <i class='bx bx-caret-down'></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
     </div>
+{% else %}
+    <div class="login-register">
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    </div>
+{% endif %}
+
 </header>
