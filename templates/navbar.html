@@ -19,22 +19,42 @@
     </ul>
     <!-- profile -->
     {% if user.is_authenticated %}
-    <div class="dropdown">
-        <button class="dropbtn">
-            <i class='bx bxs-user-circle'></i>
-            <span>{{ user.username }}</span>
-            <i class='bx bx-caret-down'></i>
+    <!-- Profile for authenticated users -->
+    <div class="dropdown" style="position: relative;">
+        <button class="dropbtn" style="background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;">
+            <i class='bx bxs-user-circle' style="font-size: 50px;"></i>
+            <span style="font-size: 16px; margin-left: 10px; color: black;">{{ user.username }}</span>
         </button>
-        <div class="dropdown-content">
-            <a href="#">Profile</a>
-            <a href="{% url 'logout' %}">Logout</a>
+        <div class="dropdown-content" style="display: none; position: absolute; background-color: #f9f9f9; min-width: 120px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+            <a href="#" style="color: #333; text-decoration: none; display: block; padding: 10px;">Profile</a>
+            <a href="{% url 'logout' %}" style="color: #333; text-decoration: none; display: block; padding: 10px;">Logout</a>
         </div>
     </div>
-{% else %}
+    {% else %}
+    <!-- Login and Register for unauthenticated users -->
     <div class="login-register">
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}" style="text-decoration: none; color: #333;">Login</a>
+        <a href="{% url 'register' %}" style="text-decoration: none; color: #333;">Register</a>
     </div>
-{% endif %}
-
+    {% endif %}
 </header>
+
+<script>
+// Toggle dropdown for authenticated users
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownBtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    
+    if (dropdownBtn && dropdownContent) {
+        dropdownBtn.addEventListener('click', function() {
+            dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!dropdownContent.contains(event.target) && event.target !== dropdownBtn) {
+                dropdownContent.style.display = 'none';
+            }
+        });
+    }
+});
+</script>

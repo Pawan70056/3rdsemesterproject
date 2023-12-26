@@ -93,6 +93,7 @@ header{
     color: var(--bg-color);
     transition: background 0.5s;
 }
+
 #menu-icon{
     font-size: 24px;
     cursor: pointer;
