@@ -6,6 +6,27 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
+from .forms import ProfileForm
+from .models import Profile
+
+
+@login_required
+def view_profile(request):
+    profile = Profile.objects.get_or_create(user=request.user)
+    return render(request, 'view_profile.html', {'profile': profile})
+
+@login_required
+def edit_profile(request):
+    profile = Profile.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('view_profile')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'edit_profile.html', {'form': form})
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -41,9 +62,27 @@ def register(request):
     return render(request, 'register.html')
 
 
+
+
+
 @login_required
-def profile(request):
-    return render(request, 'profile.html')
+def view_profile(request):
+    profile = Profile.objects.get_or_create(user=request.user)
+    print(profile)
+    return render(request, 'view_profile.html', {'profile': profile})
+
+@login_required
+def edit_profile(request):
+    profile = Profile.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('view_profile')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'edit_profile.html', {'form': form})
+
 
 
 def logout_view(request):
