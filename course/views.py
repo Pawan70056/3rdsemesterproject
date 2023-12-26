@@ -107,5 +107,10 @@ def enroll_course(request, course_id):
     
 
 
+@login_required
+def my_courses(request):
+    user = request.user
+    enrolled_courses = MyCourses.objects.filter(user=user)
+    return render(request, 'my_courses.html', {'enrolled_courses': enrolled_courses})
 
 
