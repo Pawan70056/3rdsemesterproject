@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Chapter, Content, Course, CourseCategory
+from .models import Book, Chapter, Content, Course, CourseCategory
 
 
 # Define a mixin class to display thumbnails
@@ -45,3 +45,13 @@ class ContentAdmin(admin.ModelAdmin):
     list_display = ('chapter','content_type' )
     list_filter = ('chapter__course', 'content_type')
     search_fields = ('chapter__title',)
+
+
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'published_date', 'category') 
+    list_filter = ('author', 'published_date', 'category') 
+    search_fields = ('title', 'author__name')  
+    
+

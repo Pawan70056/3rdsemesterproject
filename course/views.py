@@ -1,8 +1,9 @@
 import json
+
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
 
-from .models import Chapter, Course, CourseCategory
+from .models import Book, Chapter, Content, Course, CourseCategory
 
 
 def dashboard(request):
@@ -17,11 +18,13 @@ def dashboard(request):
 
 def all_courses(request):
     # Fetch all courses or perform any necessary operations
-    courses = Course.objects.all()  # Example: Fetching all courses from the database
+    courses = Course.objects.all()  
+    books = Book.objects.all()
 
     # Pass courses data to the template context
     context = {
         'courses': courses,
+        'books': books
     }
 
     # Render the 'allCourses.html' template with the context
@@ -37,9 +40,14 @@ def coursebycategory(request, category_id):
 
     # Retrieve all courses related to the specific category
     courses_in_category = Course.objects.filter(category=category)
-
+    books = Book.objects.filter(category =category)
+    context = {
+        'courses_in_category': courses_in_category,
+        'books': books,
+        'category': category
+    }
     # Pass the category and related courses to the template context
-    return render(request, 'courseByCategory.html', {'category': category, 'courses_in_category': courses_in_category})
+    return render(request, 'courseByCategory.html', context)
 
 
 def course_detail(request, course_id):
@@ -52,9 +60,6 @@ def enroll(request,course_id):
 
 
 
-from django.shortcuts import get_object_or_404, render
-
-from .models import Course
 
 
 def read(request, course_id):
@@ -74,10 +79,6 @@ def read(request, course_id):
 
 
 
-
-from django.http import JsonResponse
-
-from .models import Chapter, Content
 
 
 def get_chapter_content(request, chapter_id):
@@ -104,4 +105,7 @@ def get_chapter_content(request, chapter_id):
         return JsonResponse(data)
     except Chapter.DoesNotExist:
         return JsonResponse({'error': 'Chapter not found'}, status=404)
+
+
+
 
