@@ -1,9 +1,10 @@
 import json
 
-from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render
 
-from .models import Book, Chapter, Content, Course, CourseCategory
+from .models import Book, Chapter, Content, Course, CourseCategory, MyCourses
 
 
 def dashboard(request):
@@ -12,9 +13,6 @@ def dashboard(request):
     
     # Pass course categories to the template context
     return render(request, 'dashboard.html', {'course_categories': course_categories})
-
-
-
 
 def all_courses(request):
     # Fetch all courses or perform any necessary operations
@@ -29,9 +27,6 @@ def all_courses(request):
 
     # Render the 'allCourses.html' template with the context
     return render(request, 'allCourses.html', context)
-
-
-
 
 
 def coursebycategory(request, category_id):
@@ -54,13 +49,6 @@ def course_detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     return render(request, 'courseDetails.html', {'course': course})
 
-def enroll(request,course_id):
-    pass
-
-
-
-
-
 
 def read(request, course_id):
     # Retrieve the specific course based on course_id
@@ -75,10 +63,6 @@ def read(request, course_id):
 
     # Render the content of the course in a template
     return render(request, 'readCourse.html', {'course': course, 'chapters': chapters, 'chapter_contents': chapter_contents})
-
-
-
-
 
 
 def get_chapter_content(request, chapter_id):
@@ -105,6 +89,22 @@ def get_chapter_content(request, chapter_id):
         return JsonResponse(data)
     except Chapter.DoesNotExist:
         return JsonResponse({'error': 'Chapter not found'}, status=404)
+
+
+
+@login_required
+def enroll_course(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    user = request.user
+
+    # Check if the user is already enrolled in the course
+    if MyCourses.objects.filter(user=user, course=course).exists():
+        return render(request, 'readCourse.html')
+
+    # Enroll the user in the course
+    MyCourses.objects.create(user=user, course=course)
+    return render(request, 'readCourse.html')
+    
 
 
 

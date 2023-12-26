@@ -1,6 +1,6 @@
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 from django.db import models
-from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -66,3 +66,13 @@ class Book(models.Model):
     
     def __str__(self):
         return self.title
+
+
+
+class MyCourses(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    date_enrolled = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.course.title}"
