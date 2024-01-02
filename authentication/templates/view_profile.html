@@ -12,7 +12,10 @@
 <div class="profile-page">
     <div class="content">
       <div class="content__cover">
-        <div class="content__avatar"></div>
+          <div class="content__avatar" style="background-image: url('{% if profile.profile_pic %}{{ profile.profile_pic.url }}{% else %}{% static 'img/student3.png' %}{% endif %}')">
+          </div>
+      
+        
         <div class="content__bull"><span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
@@ -26,20 +29,32 @@
             <path fill="currentColor" d="M576 320c0 34.3-14.1 66-38 92 13.4 30.3 35.5 54.2 35.8 54.5a8 8 0 0 1 1.5 8.7 7.88 7.88 0 0 1-7.3 4.8c-36.6 0-66.9-12.3-88.7-25-32.2 15.8-70.3 25-111.3 25-86.2 0-160.2-40.4-191.7-97.9A299.82 299.82 0 0 0 208 384c132.3 0 240-86.1 240-192a148.61 148.61 0 0 0-1.3-20.1C522.5 195.8 576 253.1 576 320z"></path>
           </svg><span>Update</span></a></div>
       <div class="content__title">
-        <h1>{{ user.username }}</h1><span>New York, United States</span>
+        <h1>
+          {% if profile.first_name %}
+              {{ profile.first_name }} {{ profile.last_name }}
+          {% else %}
+              {{ request.user.username }}
+          {% endif %}
+      </h1>
+      <div>
+        <span>{{profile.email}}</span>    
+
       </div>
+
+    <span>{{profile.street}}, {{profile.city}},  {{profile.nationality}}</span>    
+    </div>
       <div class="content__description">
-        <p>Web Producer - Web Specialist</p>
-        <p>Columbia University - New York</p>
+        <p>{{profile.bio}}  </p>
+        <p>{{profile.university}}</p>
       </div>
       <ul class="content__list">
-        <li><span>65</span>My Courses</li>
-        <li><span>43</span>My Books</li>
+        <li><span>{{mycourses_count|default:"0"}}</span>My Courses</li>
+        <li><span>{{mybooks_count|default:"0"}}</span>My Books</li>
       </ul>
-      <div class="content__button"><a class="button" href="#">
+      <div class="content__button"><a class="button" href="{% url 'logout' %}">
           <div class="button__border"></div>
           <div class="button__bg"></div>
-          <p class="button__text">Show more</p></a></div>
+          <p class="button__text">Log Out</p></a></div>
     </div>
     <div class="bg">
       <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span>

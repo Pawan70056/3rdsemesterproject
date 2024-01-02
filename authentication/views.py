@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
+from course.models import MyCourses
+
 from .models import Profile  # Import your Profile model
 
 # views.py
@@ -52,10 +54,25 @@ def register(request):
 
 
 
+
+from .models import Profile
+
+
 @login_required
 def view_profile(request):
-    profile = Profile.objects.get_or_create(user=request.user)
-    return render(request, 'view_profile.html', {'profile': profile})
+    profile, created = Profile.objects.get_or_create(user=request.user)
+    
+    # Count the courses associated with the user's profile
+    mycourses_count = MyCourses.objects.filter(user=request.user).count()
+
+
+    context = {
+        'profile': profile,
+        'mycourses_count': mycourses_count,
+    }
+    
+    return render(request, 'view_profile.html', context)
+
 
 
 def edit_profile(request):
@@ -77,7 +94,7 @@ def edit_profile(request):
         city = request.POST.get('city')
         # Process the profile picture separately
         profile_pic = request.FILES.get('profile_pic')
-
+        print(profile_pic)
         # Update the profile fields with the new data
         profile.first_name = first_name
         profile.last_name = last_name

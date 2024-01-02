@@ -14,7 +14,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=20,blank=True, null=True)
     university = models.CharField(max_length=100,blank=True, null=True)
     profile_pic = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
-    bio = models.TextField(blank=True, null=True)
+    bio = models.TextField(max_length = 1000, blank=True, null=True)
     street = models.CharField(max_length=100,blank=True, null=True)
     city = models.CharField(max_length=100,blank=True, null=True)
 
