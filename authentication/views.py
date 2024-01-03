@@ -120,8 +120,40 @@ def edit_profile(request):
     return render(request, 'edit_profile.html', context)
 
 
-def     settings(request):
-    return render(request, 'settings.html')
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.shortcuts import redirect, render
+
+
+@login_required
+def settings(request):
+    if request.method == 'POST':
+        if 'delete_account' in request.POST:
+            entered_username = request.POST.get('username', '')
+            if entered_username == request.user.username:
+                # Delete the user or mark the user as inactive
+                request.user.delete()
+                # Redirect to a different page after account deletion
+                return render(request, 'dashboard.html')
+            else:
+                messages.error(request, 'Username does not match. Account deletion failed.')
+        elif 'change_password' in request.POST:
+            form = PasswordChangeForm(request.user, request.POST)
+            if form.is_valid():
+                user = form.save()
+                update_session_auth_hash(request, user)  # Important to update the session
+                messages.success(request, 'Your password was successfully updated!')
+                return render(request, 'password_changed.html')
+            else:
+                messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    
+    return render(request, 'settings.html', {'form': form})
+
+
 
 
 def logout_view(request):

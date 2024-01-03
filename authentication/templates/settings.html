@@ -49,7 +49,8 @@
           <div class="tab-pane active" id="account">
             <h6>ACCOUNT SETTINGS</h6>
             <hr />
-            <form>
+            <form method="post">
+              {% csrf_token %}
               <div class="form-group">
                 <label for="username">Username</label>
                 <input
@@ -58,11 +59,11 @@
                   id="username"
                   aria-describedby="usernameHelp"
                   placeholder="Enter your username"
-                  name ="username"
+                  name="username"
                 />
-                <small id="usernameHelp" class="form-text text-muted"
-                  >Write your username to confirm to delete your account.</small
-                >
+                <small id="usernameHelp" class="form-text text-muted">
+                  Write your username to confirm to delete your account.
+                </small>
               </div>
               <hr />
               <div class="form-group">
@@ -72,11 +73,16 @@
                   be certain.
                 </p>
               </div>
-              <button class="btn btn-danger" type="button">
+              <button
+                class="btn btn-danger"
+                type="submit"
+                name="delete_account"
+              >
                 Delete Account
               </button>
             </form>
           </div>
+
           <div class="tab-pane" id="security">
             <h6>SECURITY SETTINGS</h6>
             <hr />
@@ -87,16 +93,19 @@
                   type="text"
                   class="form-control"
                   placeholder="Enter your old password"
+                  name="old_password"
                 />
                 <input
                   type="text"
                   class="form-control mt-1"
                   placeholder="New password"
+                  name="new_password1"
                 />
                 <input
                   type="text"
                   class="form-control mt-1"
                   placeholder="Confirm new password"
+                  name="new_password2"
                 />
               </div>
               <button class="btn btn-danger" type="button">
