@@ -1,20 +1,15 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
-from django.contrib.auth import logout
+from django.contrib.auth import logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
 from course.models import MyCourses
 
-from .models import Profile  # Import your Profile model
-
-# views.py
-
-
-
-
+from .models import Profile
 
 
 def user_login(request):
@@ -120,11 +115,6 @@ def edit_profile(request):
     return render(request, 'edit_profile.html', context)
 
 
-from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordChangeForm
-from django.shortcuts import redirect, render
 
 
 @login_required
@@ -136,7 +126,7 @@ def settings(request):
                 # Delete the user or mark the user as inactive
                 request.user.delete()
                 # Redirect to a different page after account deletion
-                return render(request, 'dashboard.html')
+                return redirect('/')
             else:
                 messages.error(request, 'Username does not match. Account deletion failed.')
         elif 'change_password' in request.POST:
@@ -145,13 +135,14 @@ def settings(request):
                 user = form.save()
                 update_session_auth_hash(request, user)  # Important to update the session
                 messages.success(request, 'Your password was successfully updated!')
-                return render(request, 'password_changed.html')
+                return redirect('login')
             else:
                 messages.error(request, 'Please correct the error below.')
     else:
         form = PasswordChangeForm(request.user)
     
     return render(request, 'settings.html', {'form': form})
+
 
 
 

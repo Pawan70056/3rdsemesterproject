@@ -60,6 +60,7 @@
                   aria-describedby="usernameHelp"
                   placeholder="Enter your username"
                   name="username"
+                  required
                 />
                 <small id="usernameHelp" class="form-text text-muted">
                   Write your username to confirm to delete your account.
@@ -83,32 +84,44 @@
             </form>
           </div>
 
+          <!-- Inside the Security tab -->
           <div class="tab-pane" id="security">
             <h6>SECURITY SETTINGS</h6>
             <hr />
-            <form>
+            <form method="post">
+              {% csrf_token %}
               <div class="form-group">
                 <label class="d-block">Change Password</label>
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
-                  placeholder="Enter your old password"
                   name="old_password"
+                  placeholder="Enter your old password"
+                  required
                 />
                 <input
-                  type="text"
+                  type="password"
                   class="form-control mt-1"
+                  name="new_password1"  
                   placeholder="New password"
-                  name="new_password1"
+                  required
+
                 />
                 <input
-                  type="text"
+                  type="password"
                   class="form-control mt-1"
-                  placeholder="Confirm new password"
                   name="new_password2"
+                  placeholder="Confirm new password"
+                  required
+
                 />
               </div>
-              <button class="btn btn-danger" type="button">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                name="change_password"
+              >
+                <!-- Change type to submit -->
                 Change Password
               </button>
             </form>
