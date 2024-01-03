@@ -120,7 +120,7 @@ def edit_profile(request):
     return render(request, 'edit_profile.html', context)
 
 
-def settings(request):
+def     settings(request):
     return render(request, 'settings.html')
 
 
