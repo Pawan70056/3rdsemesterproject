@@ -104,6 +104,7 @@ def edit_profile(request):
         if profile_pic:
             profile.profile_pic = profile_pic
         profile.save()
+        messages.success("Profile Updated successfully")
 
         return redirect('profile')  # Redirect to profile page after update
 
@@ -126,9 +127,10 @@ def settings(request):
                 # Delete the user or mark the user as inactive
                 request.user.delete()
                 # Redirect to a different page after account deletion
-                return redirect('/')
+                return redirect('register')
             else:
-                messages.error(request, 'Username does not match. Account deletion failed.')
+                messages.error(request, 'Please, check the username and user correct username to delete account')
+                return redirect
         elif 'change_password' in request.POST:
             form = PasswordChangeForm(request.user, request.POST)
             if form.is_valid():
