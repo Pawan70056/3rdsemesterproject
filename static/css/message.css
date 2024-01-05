@@ -1,17 +1,33 @@
 /* Your CSS stylesheet */
-.messages {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
+.toast-container {
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 3rem;
 }
 
-.success {
+.toast {
+    max-width: 350px;
+    width: 100%;
+    overflow-wrap: break-word;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    opacity: 0; /* Start hidden */
+}
+
+.toast.show {
+    opacity: 1; /* Show the toast */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Define colors for different message types */
+.toast-success {
     background-color: #dff0d8;
     border-color: #d0e9c6;
     color: #3c763d;
 }
 
-.error {
+.toast-error {
     background-color: #f2dede;
     border-color: #ebccd1;
     color: #a94442;

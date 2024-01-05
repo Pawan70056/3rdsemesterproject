@@ -159,15 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Define the message storage backend
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-# Set message tags
-MESSAGE_TAGS = {
-    messages.DEBUG: 'debug',
-    messages.INFO: 'info',
-    messages.SUCCESS: 'success',
-    messages.WARNING: 'warning',
-    messages.ERROR: 'error',
-}
-
 # Optionally set message levels if you want to customize the levels or add new ones
 
 MESSAGE_LEVEL = messages.DEBUG
+LOGIN_URL = '/auth/login/'

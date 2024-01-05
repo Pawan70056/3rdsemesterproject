@@ -20,7 +20,9 @@ def user_login(request):
         
         if user is not None:
             auth_login(request, user)  # Corrected the login function call
+            messages.success(request, 'Login successful')
             return redirect('dashboard')
+            
         else:
             messages.error(request, 'Invalid username or password')
     
@@ -104,7 +106,7 @@ def edit_profile(request):
         if profile_pic:
             profile.profile_pic = profile_pic
         profile.save()
-        messages.success("Profile Updated successfully")
+        messages.success(request, "Profile Updated successfully")
 
         return redirect('profile')  # Redirect to profile page after update
 
@@ -137,6 +139,8 @@ def settings(request):
                 user = form.save()
                 update_session_auth_hash(request, user)  # Important to update the session
                 messages.success(request, 'Your password was successfully updated!')
+                logout(request)  # Log out the user after changing the password
+
                 return redirect('login')
             else:
                 messages.error(request, 'Please correct the error below.')
