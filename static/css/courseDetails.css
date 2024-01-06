@@ -1,0 +1,221 @@
+/* Your existing styles for cards or general styling */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.course-details {
+    display: flex;
+    background-color: #f9f9f9; /* Adding a light background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-section {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Elevation effect */
+    overflow: hidden; /* Ensure the image stays within the circular border */
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    display: block;
+    margin: 0 auto;
+}
+
+.tag-clickable {
+    color: white; /* White color for tags */
+    margin-right: 10px; /* Adjust spacing between tags */
+    border: 1px solid white; /* Add an outline to tags */
+    border-radius: 8px; /* Rounded border */
+    padding: 5px 10px; /* Padding for tags */
+}
+
+.details-section {
+    flex: 3;
+    padding: 20px;
+    background-color: #6f61ff; /* Red background color for course details section */
+    border-radius: 8px;
+    margin-left: 20px; /* Add some space between sections */
+}
+
+/* Rest of your existing styles... */
+
+.tabcontent {
+    display: none;
+    margin:20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.tablinks {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.tablinks:hover {
+    background-color: #ddd;
+}
+
+.tablinks.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.purchase-btn {
+    margin: 10px;
+    border: none;
+    background-color: #ff0000; /* Red filled color */
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease; /* Transition effect for border color change */
+}
+
+.purchase-btn:hover {
+    border: 2px solid #28a745; /* Green outline color on hover */
+    background-color: transparent; /* Remove the background color on hover */
+    color: #28a745; /* Change text color on hover */
+}
+
+
+/* Existing CSS styles... */
+
+/* New styles for the table layout */
+.row-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-table,
+.right-table {
+    width: 48%;
+}
+
+.left-table ul,
+.right-table ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-table ul li,
+.right-table ul li {
+    margin-bottom: 5px;
+}
+
+/* Adjust the width and spacing as needed */
+
+.unit {
+    list-style: none;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.unit:hover {
+    background-color: #e0e0e0;
+}
+
+.unit .arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.sub-chapters {
+    display: none;
+    padding-left: 20px; /* Adjust indentation as needed */
+    border-left: 1px solid #ccc;
+    margin-left: 10px;
+}
+
+.sub-chapters.show {
+    display: block;
+}
+
+/* Arrow styles */
+.arrow::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 12px;
+}
+
+/* PDF icon */
+.pdf-icon::before {
+    content: '\1F4D6'; /* Unicode for PDF icon */
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .unit {
+        padding: 8px;
+    }
+    .unit .arrow::after {
+        font-size: 10px;
+    }
+    .sub-chapters {
+        padding-left: 15px;
+        margin-left: 5px;
+    }
+}
+
+/* Styles for author profile container */
+.author-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.author-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.author-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.authorname {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.author-experience {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.author-description {
+    line-height: 1.6;
+    text-align: left;
+}
