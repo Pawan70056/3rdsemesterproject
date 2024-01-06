@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/courseByCategory.css' %}">
+{% endblock head %}
+
+{% block content %}
+<section class="courses-section">
+    <h2>Courses</h2>
+    <div class="card-container">
+        {% if courses_in_category %}
+            <!-- Display courses if available -->
+            {% for course in courses_in_category %}
+                <div class="card">
+                    <img src="{{ course.thumbnail.url }}" alt="{{ course.title }}" style="width: 100%; height: 120px; object-fit: contain;">
+                    <div class="card-info">
+                        <a href="{% url 'course_detail' course.id %}">
+                            <h3>{{ course.title }}</h3>
+                        </a>
+                        <p>{{ course.description|striptags|slice:":100" }}</p>
+                        <p class='test-disabled'>{{ course.instructor }}</p>
+                    </div>
+                    <div class="card-footer">
+                        {% include 'includes/rating.html' %}
+                        <a href="{% url 'enroll_course' course.id %}" class="purchase-btn">Enroll</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Display message if no courses available in this category -->
+            <div class="no-courses-msg">
+                <p>No courses available.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="books-section">
+    <h2>Books</h2>
+    <div class="card-container">
+        {% if books %}
+            <!-- Display books if available -->
+            {% for book in books %}
+                <div class="card">
+                    <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" style="width: 100%; height: 120px; object-fit: contain;">
+                    <div class="card-info">
+                        <a href="#">
+                            <h3>{{ book.title }}</h3>
+                        </a>
+                        <p>{{ book.description|striptags|slice:":100" }}</p>
+                        <p class='test-disabled'>{{ book.author }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <!-- Any book-specific details or buttons here -->
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Display message if no books available in this category -->
+            <div class="no-books-msg">
+                <p>No books available.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}
