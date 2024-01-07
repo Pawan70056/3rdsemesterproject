@@ -1,5 +1,6 @@
 import json
 
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render
@@ -61,6 +62,7 @@ def read(request, course_id):
     for chapter in chapters:
         chapter_contents[chapter] = chapter.contents.all()
 
+    messages.success(request, 'Content Fetched Successfully')
     # Render the content of the course in a template
     return render(request, 'readCourse.html', {'course': course, 'chapters': chapters, 'chapter_contents': chapter_contents})
 
@@ -99,10 +101,13 @@ def enroll_course(request, course_id):
 
     # Check if the user is already enrolled in the course
     if MyCourses.objects.filter(user=user, course=course).exists():
+        messages.info(request, 'You are already enrolled in the above course, you can read.')
         return render(request, 'readCourse.html')
 
     # Enroll the user in the course
     MyCourses.objects.create(user=user, course=course)
+    messages.success(request, 'You have successfully enrolled in the above course.')
+
     return render(request, 'readCourse.html')
     
 

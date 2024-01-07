@@ -20,6 +20,10 @@
     transition: opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
+.mr-auto{
+    color: white;
+}
+
 /* Define colors for different message types */
 .toast-header {
     color: rgba(255, 255, 255, 0);
@@ -27,12 +31,16 @@
 }
 
 .bg-success {
-    background-color: #4CAF50; /* Green for success messages */
+    background-color: #00ff08; /* Green for success messages */
 
 }
 
 .bg-error {
-    background-color: #f44336; /* Red for error messages */
+    background-color: #fb0000; /* Red for error messages */
+}
+
+.bg-info{
+    background-color: gray;
 }
 
 /* Add similar styling for other message types */
