@@ -47,4 +47,17 @@
         <h1>Course View <br><span>Courses</span></h1>
             <a href="/all-courses" class="button">View All<i class='bx bx-right-arrow-alt'></i></a>
     </div>
-    
+    <!-- Container Content -->
+    <div class="courses-conatiner">
+        {% for category in course_categories %}
+        <div class="box box1">
+            <img src="{{ category.thumbnail.url }}" alt="{{ category.name }}">
+            <h2>{{ category.name }}</h2>
+            <span>{{ category.courses.count }} Items</span>
+            <a href="{% url 'course-by-category' category.id %}"> <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+        {% endfor %}
+
+       
+    </div> 
+</section>
