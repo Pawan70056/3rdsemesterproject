@@ -2,9 +2,9 @@
 .toast-container {
     z-index: 11;
     position: fixed;
-    top: 10;
-    left: 0;
-    padding: 3rem;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .toast {
@@ -21,16 +21,18 @@
 }
 
 /* Define colors for different message types */
-.toast-success {
-    background-color: #dff0d8;
-    border-color: #d0e9c6;
-    color: #3c763d;
+.toast-header {
+    color: rgba(255, 255, 255, 0);
+    padding: 0.75rem;
 }
 
-.toast-error {
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    color: #a94442;
+.bg-success {
+    background-color: #4CAF50; /* Green for success messages */
+
+}
+
+.bg-error {
+    background-color: #f44336; /* Red for error messages */
 }
 
 /* Add similar styling for other message types */
