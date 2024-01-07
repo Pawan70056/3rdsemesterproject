@@ -42,5 +42,10 @@ class Migration(migrations.Migration):
                 ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='chapters', to='course.course')),
             ],
         ),
+        migrations.AddField(
+            model_name='course',
+            name='category',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='courses', to='course.coursecategory'),
+        ),
        
     ]
