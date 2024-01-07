@@ -20,11 +20,11 @@ def user_login(request):
         
         if user is not None:
             auth_login(request, user)  # Corrected the login function call
-            messages.success(request, 'Login successful')
+            messages.success(request, 'you have logged in successfully')
             return redirect('dashboard')
             
         else:
-            messages.error(request, 'Invalid username or password')
+            messages.error(request, 'Invalid username or password, please check and try again')
     
     return render(request, 'login.html')
 
@@ -38,7 +38,7 @@ def register(request):
         email = request.POST.get('email')
 
         if User.objects.filter(username=username).exists():
-            messages.error(request, 'Username already exists')
+            messages.error(request, 'Username already exists, use another or reset you password')
         else:
             user = User.objects.create_user(username=username, password=password, email=email)
             user.save()
@@ -106,9 +106,10 @@ def edit_profile(request):
         if profile_pic:
             profile.profile_pic = profile_pic
         profile.save()
-        messages.success(request, "Profile Updated successfully")
+        messages.success(request, "Profile Updated successfully with entered details")
 
         return redirect('profile')  # Redirect to profile page after update
+    
 
     # Pass the profile data to the template context to pre-fill the form
     context = {
@@ -138,12 +139,12 @@ def settings(request):
             if form.is_valid():
                 user = form.save()
                 update_session_auth_hash(request, user)  # Important to update the session
-                messages.success(request, 'Your password was successfully updated!')
+                messages.success(request, 'Your password was successfully updated!, login again with new password')
                 logout(request)  # Log out the user after changing the password
 
                 return redirect('login')
             else:
-                messages.error(request, 'Please correct the error below.')
+                messages.error(request, 'Error Occured, please enter the required in correct fromat')
     else:
         form = PasswordChangeForm(request.user)
     
