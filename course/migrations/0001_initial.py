@@ -34,5 +34,13 @@ class Migration(migrations.Migration):
                 ('thumbnail', models.ImageField(upload_to='')),
             ],
         ),
+        migrations.CreateModel(
+            name='Chapter',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=100)),
+                ('course', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='chapters', to='course.course')),
+            ],
+        ),
        
     ]
