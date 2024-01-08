@@ -137,6 +137,7 @@ def settings(request):
         elif 'change_password' in request.POST:
             form = PasswordChangeForm(request.user, request.POST)
             if form.is_valid():
+                
                 user = form.save()
                 update_session_auth_hash(request, user)  # Important to update the session
                 messages.success(request, 'Your password was successfully updated!, login again with new password')
