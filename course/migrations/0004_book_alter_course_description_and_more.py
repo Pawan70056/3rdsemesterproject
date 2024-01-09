@@ -27,5 +27,10 @@ class Migration(migrations.Migration):
                 
             ],
         ),
+         migrations.AlterField(
+            model_name='course',
+            name='description',
+            field=ckeditor.fields.RichTextField(),
+        ),
 
     ]
