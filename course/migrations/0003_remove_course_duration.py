@@ -9,3 +9,9 @@ class Migration(migrations.Migration):
         ('course', '0002_content'),
     ]
 
+    operations = [
+        migrations.RemoveField(
+            model_name='course',
+            name='duration',
+        ),
+    ]
