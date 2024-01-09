@@ -124,14 +124,6 @@ class Feedback(models.Model):
         ('not-sure', 'Not sure')
     ]
     recommend_course = models.CharField(max_length=20, choices=recommend_choices)
-    improvement_areas_choices = [
-        ('lectures', 'Lectures and videos'),
-        ('material', 'Instructional materials i.e. readings'),
-        ('assignments', 'Course assignments and projects'),
-        ('exams', 'Graded assignments and exams'),
-        ('forum', 'Forum'),
-        ('additional-courses', 'Additional Courses')
-    ]
     improvement_areas = models.ManyToManyField('ImprovementArea')
     comments = models.TextField()
 
@@ -140,7 +132,16 @@ class Feedback(models.Model):
 
 
 class ImprovementArea(models.Model):
-    area = models.CharField(max_length=100)
+    area_choices = [
+        ('lectures', 'Lectures and videos'),
+        ('material', 'Instructional materials i.e. readings'),
+        ('assignments', 'Course assignments and projects'),
+        ('exams', 'Graded assignments and exams'),
+        ('forum', 'Forum'),
+        ('additional-courses', 'Additional Courses')
+    ]
+
+    area = models.CharField(max_length=100, choices=area_choices)
 
     def __str__(self):
         return self.area
