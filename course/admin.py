@@ -63,5 +63,35 @@ class MyCoursesAdmin(admin.ModelAdmin):
     search_fields = ('user__username', 'course__title',)
   
     
-admin.site.register(Feedback)
-admin.site.register(ImprovementArea)
+@admin.register(Feedback)
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'age', 'employment_status', 'experience_level', 'course_rating')
+    list_filter = ('employment_status', 'experience_level', 'course_rating')
+    search_fields = ('name', 'email')
+
+     # Disable add, update, and delete actions
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(ImprovementArea)
+class ImprovementAreaAdmin(admin.ModelAdmin):
+    list_display = ('area',)
+    search_fields = ('area',)
+
+     # Disable add, update, and delete actions
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
