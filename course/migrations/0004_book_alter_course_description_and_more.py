@@ -32,5 +32,11 @@ class Migration(migrations.Migration):
             name='description',
             field=ckeditor.fields.RichTextField(),
         ),
+         migrations.AlterField(
+            model_name='coursecategory',
+            name='description',
+            field=ckeditor.fields.RichTextField(default=django.utils.timezone.now),
+            preserve_default=False,
+        ),
 
     ]
