@@ -5,3 +5,8 @@ import django.utils.timezone
 from django.db import migrations, models
 
 
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('course', '0003_remove_course_duration'),
+    ]
