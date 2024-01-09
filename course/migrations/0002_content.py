@@ -10,6 +10,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('course', '0001_initial'),
     ]
+
     operations = [
         migrations.CreateModel(
             name='Content',

@@ -11,7 +11,6 @@ class Migration(migrations.Migration):
         ('course', '0003_remove_course_duration'),
     ]
 
-
     operations = [
         migrations.CreateModel(
             name='Book',
@@ -24,19 +23,17 @@ class Migration(migrations.Migration):
                 ('genre', models.CharField(max_length=100)),
                 ('description', models.TextField()),
                 ('cover_image', models.ImageField(blank=True, null=True, upload_to='book_covers/')),
-                
             ],
         ),
-         migrations.AlterField(
+        migrations.AlterField(
             model_name='course',
             name='description',
             field=ckeditor.fields.RichTextField(),
         ),
-         migrations.AlterField(
+        migrations.AlterField(
             model_name='coursecategory',
             name='description',
             field=ckeditor.fields.RichTextField(default=django.utils.timezone.now),
             preserve_default=False,
         ),
-
     ]

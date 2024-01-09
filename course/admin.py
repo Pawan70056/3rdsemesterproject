@@ -27,7 +27,6 @@ class DescriptionDisplayMixin:
 class CourseCategoryAdmin(admin.ModelAdmin, ThumbnailDisplayMixin,DescriptionDisplayMixin ):
     list_display = ('display_thumbnail', 'name', 'display_short_description')
 
-
 # Register Course model
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin, ThumbnailDisplayMixin, DescriptionDisplayMixin):
@@ -35,13 +34,11 @@ class CourseAdmin(admin.ModelAdmin, ThumbnailDisplayMixin, DescriptionDisplayMix
     list_filter = ('category', 'instructor', 'created_at', 'updated_at')
     search_fields = ('title', 'description')
 
-
 @admin.register(Chapter)
 class ChapterAdmin(admin.ModelAdmin):
     list_display = ('title', 'course')
     list_filter = ('course',)
     search_fields = ('title',)
-
 
 @admin.register(Content)
 class ContentAdmin(admin.ModelAdmin):
@@ -56,7 +53,6 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'published_date', 'category') 
     list_filter = ('author', 'published_date', 'category') 
     search_fields = ('title', 'author__name')  
-    
     
 
 @admin.register(MyCourses)
