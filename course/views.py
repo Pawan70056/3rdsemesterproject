@@ -3,9 +3,11 @@ import json
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import Book, Chapter, Content, Course, CourseCategory, MyCourses
+from .froms import FeedbackForm
+from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback,
+                     MyCourses)
 
 
 def dashboard(request):
@@ -119,3 +121,20 @@ def my_courses(request):
     return render(request, 'my_courses.html', {'enrolled_courses': enrolled_courses})
 
 
+# feedback_reviews/views.py
+
+
+@login_required
+def feedback_submission(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            # Create and save the feedback instance to the database
+            new_feedback = form.save(commit=False)
+            new_feedback.user = request.user  # If you're using Django's authentication
+            new_feedback.save()
+            return redirect('dashboard')  # Redirect to a 'thank you' page or any desired page
+    else:
+        form = FeedbackForm()
+    
+    return render(request, 'feedback.html', {'form': form})
