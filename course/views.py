@@ -129,12 +129,11 @@ def feedback_submission(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            # Create and save the feedback instance to the database
-            new_feedback = form.save(commit=False)
-            new_feedback.user = request.user  # If you're using Django's authentication
-            new_feedback.save()
-            return redirect('dashboard')  # Redirect to a 'thank you' page or any desired page
+            form.save()
+            return redirect('thank_you')
+        else:
+            print(form.errors)  # Print form errors to check for validation issues
     else:
         form = FeedbackForm()
-    
+
     return render(request, 'feedback.html', {'form': form})

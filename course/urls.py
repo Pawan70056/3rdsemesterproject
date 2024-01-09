@@ -13,7 +13,7 @@ urlpatterns = [
     path('read/<int:course_id>/', views.read, name= "read"),
     path('get_chapter_content/<int:chapter_id>/', views.get_chapter_content, name='get_chapter_content'),
     path('my-courses/', views.my_courses, name='my_courses'),
-    path('feedback/', views.feedback_submission, name='feedback'),
+    path('feedback/', views.feedback_submission, name='feedback_submission'),
 
 
 ]
