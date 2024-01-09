@@ -34,3 +34,10 @@ class CourseAdmin(admin.ModelAdmin, ThumbnailDisplayMixin, DescriptionDisplayMix
     list_display = ('display_thumbnail', 'title', 'display_short_description', 'instructor', 'category', 'created_at', 'updated_at')
     list_filter = ('category', 'instructor', 'created_at', 'updated_at')
     search_fields = ('title', 'description')
+
+
+@admin.register(Chapter)
+class ChapterAdmin(admin.ModelAdmin):
+    list_display = ('title', 'course')
+    list_filter = ('course',)
+    search_fields = ('title',)
