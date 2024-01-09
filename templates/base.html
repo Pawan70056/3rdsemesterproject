@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-learning website</title>
+    <!-- link to CSS -->
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+    <!-- Boxicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- Link Swiper's Css -->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+     <!-- Extra Head -->
+     {% block head %}
+            
+     {% endblock %}
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    {%include 'navbar.html'%}
+
+    {% include 'message.html' %}
+
+        <!-- Main Content -->
+        {% block content %}
+            
+			{% endblock %}
+
+   
+    <!-- Footer -->
+    {%include 'footer.html'%}
+
+    <!-- swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+     <!-- link to js -->
+     <script src="{% static "js/index.js" %}"></script>
+
+     <!-- Block Script  -->
+     {% block script %}
+            
+     {% endblock %}
+
+</body>
+</html>
