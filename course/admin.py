@@ -50,3 +50,10 @@ class ContentAdmin(admin.ModelAdmin):
     search_fields = ('chapter__title',)
 
 
+
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'published_date', 'category') 
+    list_filter = ('author', 'published_date', 'category') 
+    search_fields = ('title', 'author__name')  
+    
