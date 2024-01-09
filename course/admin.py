@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback,
+from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback, ImprovementArea,
                      MyCourses)
 
 
@@ -64,3 +64,4 @@ class MyCoursesAdmin(admin.ModelAdmin):
   
     
 admin.site.register(Feedback)
+admin.site.register(ImprovementArea)
