@@ -21,3 +21,8 @@ class DescriptionDisplayMixin:
 
     display_short_description.short_description = 'Short Description'
 
+
+# Register CourseCategory model
+@admin.register(CourseCategory)
+class CourseCategoryAdmin(admin.ModelAdmin, ThumbnailDisplayMixin,DescriptionDisplayMixin ):
+    list_display = ('display_thumbnail', 'name', 'display_short_description')
