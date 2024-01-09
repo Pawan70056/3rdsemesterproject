@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Book, Chapter, Content, Course, CourseCategory, MyCourses
+from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback,
+                     MyCourses)
 
 
 # Define a mixin class to display thumbnails
@@ -62,3 +63,4 @@ class MyCoursesAdmin(admin.ModelAdmin):
     search_fields = ('user__username', 'course__title',)
   
     
+admin.site.register(Feedback)

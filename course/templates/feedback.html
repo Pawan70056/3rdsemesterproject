@@ -1,8 +1,11 @@
-{% extends 'base.html' %} {% load static %} {% block head %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
 <link rel="stylesheet" href="{% static 'css/feedback.css' %}" />
+{% endblock head %}
 
-{% endblock head %} {% block content %}
-
+{% block content %}
 <div class="container">
   <div class="header">
     <div class="column-header">
@@ -12,7 +15,6 @@
         course. Thank you for taking the time to help us improve the platform.
       </p>
     </div>
-
     <div class="column-image">
       <div id="image-div">
         <img
@@ -24,8 +26,9 @@
       </div>
     </div>
   </div>
-
-  <form id="survey-form">
+  
+  <form id="survey-form" method="post" action="{% url 'feedback_submission' %}">
+    {% csrf_token %}
     <div class="form-group">
       <label id="name-label" for="name">Name</label>
       <input
@@ -300,8 +303,5 @@
   </form>
 </div>
 
-<section class="footer">
-  <p>Design & Development - Foteini Savvidou</p>
-</section>
 
 {% endblock content %}
