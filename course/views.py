@@ -129,10 +129,13 @@ def feedback_submission(request):
     if request.method == 'POST':
         form = FeedbackForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('thank_you')
-        else:
-            print(form.errors)  # Print form errors to check for validation issues
+            feedback = form.save(commit=False)
+            improvement_areas = request.POST.getlist('improvement_areas')  # Get the selected improvement areas from the form
+            for area in improvement_areas:
+                feedback.improvement_areas.add(area)
+            feedback.save()
+            messages.success(request, 'Feedback has been sent successfully')
+            return redirect('dashboard')  # Redirect to a 'thank you' page after successful form submission
     else:
         form = FeedbackForm()
 
