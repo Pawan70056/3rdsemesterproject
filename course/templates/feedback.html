@@ -68,7 +68,7 @@
 
     <div class="form-group">
       <p>Employment Status</p>
-      <select id="dropdown" name="role" class="form-control" required>
+      <select id="employment_status" name="employment_status" class="form-control" required>
         <option disabled selected value>Select your current status</option>
         <option value="student">Student</option>
         <option value="job-full">Employed Full Time</option>
@@ -84,8 +84,8 @@
     <div class="form-group">
       <p>Experience Level</p>
       <select
-        id="experience-dropdown"
-        name="experience"
+        id="experience_level"
+        name="experience_level"
         class="form-control"
         required
       >
@@ -104,7 +104,7 @@
       <p>Overall, how would you rate the course?</p>
       <label>
         <input
-          name="user-rate"
+          name="course_rating"
           value="excellent"
           type="radio"
           class="input-radio"
@@ -113,7 +113,7 @@
       >
       <label>
         <input
-          name="user-rate"
+          name="course_rating"
           value="very-good"
           type="radio"
           class="input-radio"
@@ -122,7 +122,7 @@
 
       <label>
         <input
-          name="user-rate"
+          name="course_rating"
           value="good"
           type="radio"
           class="input-radio"
@@ -131,7 +131,7 @@
 
       <label>
         <input
-          name="user-rate"
+          name="course_rating"
           value="fair"
           type="radio"
           class="input-radio"
@@ -140,7 +140,7 @@
 
       <label>
         <input
-          name="user-rate"
+          name="course_rating"
           value="poor"
           type="radio"
           class="input-radio"
@@ -155,7 +155,7 @@
       </p>
       <label>
         <input
-          name="materials-rate"
+          name="materials_rating"
           value="extremely"
           type="radio"
           class="input-radio"
@@ -164,7 +164,7 @@
       >
       <label>
         <input
-          name="materials-rate"
+          name="materials_rating"
           value="very"
           type="radio"
           class="input-radio"
@@ -173,7 +173,7 @@
 
       <label>
         <input
-          name="materials-rate"
+          name="materials_rating"
           value="somewhat"
           type="radio"
           class="input-radio"
@@ -182,7 +182,7 @@
 
       <label>
         <input
-          name="materials-rate"
+          name="materials_rating"
           value="not-so"
           type="radio"
           class="input-radio"
@@ -191,7 +191,7 @@
 
       <label>
         <input
-          name="materials-rate"
+          name="materials_rating"
           value="no"
           type="radio"
           class="input-radio"
@@ -203,7 +203,7 @@
       <p>Would you recommend the course to a friend?</p>
       <label>
         <input
-          name="user-recommend"
+          name="recommend_course"
           value="definitely"
           type="radio"
           class="input-radio"
@@ -212,7 +212,7 @@
       >
       <label>
         <input
-          name="user-recommend"
+          name="recommend_course"
           value="maybe"
           type="radio"
           class="input-radio"
@@ -221,7 +221,7 @@
 
       <label>
         <input
-          name="user-recommend"
+          name="recommend_course"
           value="not-sure"
           type="radio"
           class="input-radio"
@@ -234,7 +234,7 @@
 
       <label>
         <input
-          name="prefer"
+          name="area"
           value="lectures"
           type="checkbox"
           class="input-checkbox"
@@ -243,7 +243,7 @@
 
       <label>
         <input
-          name="prefer"
+          name="area"
           value="material"
           type="checkbox"
           class="input-checkbox"
@@ -252,7 +252,7 @@
 
       <label>
         <input
-          name="prefer"
+          name="area"
           value="assignments"
           type="checkbox"
           class="input-checkbox"
@@ -261,7 +261,7 @@
 
       <label>
         <input
-          name="prefer"
+          name="area"
           value="exams"
           type="checkbox"
           class="input-checkbox"
@@ -270,7 +270,7 @@
 
       <label>
         <input
-          name="prefer"
+          name="area"
           value="forum"
           type="checkbox"
           class="input-checkbox"
@@ -279,7 +279,7 @@
 
       <label>
         <input
-          name="prefer"
+          name="area"
           value="additional-courses"
           type="checkbox"
           class="input-checkbox"
@@ -292,7 +292,7 @@
       <textarea
         id="comments"
         class="input-textarea"
-        name="comment"
+        name="comments"
         placeholder="Enter your comment here..."
       ></textarea>
     </div>
