@@ -1,4 +1,4 @@
-# Project Name
+# AcadamiConnect
 
 This project is a Django web application for managing courses and collecting feedback.
 
