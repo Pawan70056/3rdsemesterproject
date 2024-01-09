@@ -26,3 +26,11 @@ class DescriptionDisplayMixin:
 @admin.register(CourseCategory)
 class CourseCategoryAdmin(admin.ModelAdmin, ThumbnailDisplayMixin,DescriptionDisplayMixin ):
     list_display = ('display_thumbnail', 'name', 'display_short_description')
+
+
+# Register Course model
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin, ThumbnailDisplayMixin, DescriptionDisplayMixin):
+    list_display = ('display_thumbnail', 'title', 'display_short_description', 'instructor', 'category', 'created_at', 'updated_at')
+    list_filter = ('category', 'instructor', 'created_at', 'updated_at')
+    search_fields = ('title', 'description')
