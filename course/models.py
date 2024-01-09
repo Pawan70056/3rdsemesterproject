@@ -79,13 +79,68 @@ class MyCourses(models.Model):
 
 
 
-
-
 class Feedback(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    subject = models.CharField(max_length=100)
-    message = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    age = models.IntegerField()
+    employment_status_choices = [
+        ('student', 'Student'),
+        ('job-full', 'Employed Full Time'),
+        ('job-part', 'Employed Part Time'),
+        ('self-employed', 'Self-employed'),
+        ('unemployed', 'Unemployed'),
+        ('retired', 'Retired'),
+        ('preferNo', 'Prefer not to say'),
+        ('other', 'Other')
+    ]
+    employment_status = models.CharField(max_length=20, choices=employment_status_choices)
+    experience_level_choices = [
+        ('junior', 'Junior (0-2 years experience)'),
+        ('mid', 'Mid-level (2+ years experience)'),
+        ('senior', 'Senior'),
+        ('executive', 'Executive'),
+        ('other', 'Other')
+    ]
+    experience_level = models.CharField(max_length=20, choices=experience_level_choices)
+    course_rating_choices = [
+        ('excellent', 'Excellent'),
+        ('very-good', 'Very good'),
+        ('good', 'Good'),
+        ('fair', 'Fair'),
+        ('poor', 'Poor')
+    ]
+    course_rating = models.CharField(max_length=20, choices=course_rating_choices)
+    materials_rating_choices = [
+        ('extremely', 'Extremely useful'),
+        ('very', 'Very useful'),
+        ('somewhat', 'Somewhat useful'),
+        ('not-so', 'Not so useful'),
+        ('no', 'No useful at all')
+    ]
+    materials_rating = models.CharField(max_length=20, choices=materials_rating_choices)
+    recommend_choices = [
+        ('definitely', 'Definitely'),
+        ('maybe', 'Maybe'),
+        ('not-sure', 'Not sure')
+    ]
+    recommend_course = models.CharField(max_length=20, choices=recommend_choices)
+    improvement_areas_choices = [
+        ('lectures', 'Lectures and videos'),
+        ('material', 'Instructional materials i.e. readings'),
+        ('assignments', 'Course assignments and projects'),
+        ('exams', 'Graded assignments and exams'),
+        ('forum', 'Forum'),
+        ('additional-courses', 'Additional Courses')
+    ]
+    improvement_areas = models.ManyToManyField('ImprovementArea')
+    comments = models.TextField()
 
     def __str__(self):
-        return f"{self.subject} - {self.user.username}"
+        return self.name
+
+
+class ImprovementArea(models.Model):
+    area = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.area
