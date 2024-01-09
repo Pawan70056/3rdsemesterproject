@@ -20,6 +20,10 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=255)),
                 ('author', models.CharField(max_length=100)),
                 ('published_date', models.DateField()),
+                ('isbn', models.CharField(max_length=13, unique=True)),
+                ('genre', models.CharField(max_length=100)),
+                ('description', models.TextField()),
+                ('cover_image', models.ImageField(blank=True, null=True, upload_to='book_covers/')),
                 
             ],
         ),
