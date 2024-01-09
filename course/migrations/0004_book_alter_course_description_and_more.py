@@ -10,3 +10,18 @@ class Migration(migrations.Migration):
     dependencies = [
         ('course', '0003_remove_course_duration'),
     ]
+
+
+    operations = [
+        migrations.CreateModel(
+            name='Book',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=255)),
+                ('author', models.CharField(max_length=100)),
+                ('published_date', models.DateField()),
+                
+            ],
+        ),
+
+    ]
