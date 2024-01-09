@@ -41,3 +41,12 @@ class ChapterAdmin(admin.ModelAdmin):
     list_display = ('title', 'course')
     list_filter = ('course',)
     search_fields = ('title',)
+
+
+@admin.register(Content)
+class ContentAdmin(admin.ModelAdmin):
+    list_display = ('chapter','content_type' )
+    list_filter = ('chapter__course', 'content_type')
+    search_fields = ('chapter__title',)
+
+
