@@ -12,3 +12,12 @@ class ThumbnailDisplayMixin:
     display_thumbnail.short_description = 'Thumbnail'
     display_thumbnail.allow_tags = True
 
+
+class DescriptionDisplayMixin:
+    def display_short_description(self, obj):
+        if len(obj.description) > 200:
+            return f"{obj.description[:200]}..."
+        return obj.description
+
+    display_short_description.short_description = 'Short Description'
+
