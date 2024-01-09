@@ -57,3 +57,12 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('author', 'published_date', 'category') 
     search_fields = ('title', 'author__name')  
     
+    
+
+@admin.register(MyCourses)
+class MyCoursesAdmin(admin.ModelAdmin):
+    list_display = ('user', 'course', 'date_enrolled')
+    list_filter = ( 'course',)
+    search_fields = ('user__username', 'course__title',)
+  
+    
