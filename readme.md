@@ -4,9 +4,43 @@ This project is a Django web application for managing courses and collecting fee
 
 ## Features
 
-- **Course Management**: Create, edit, and manage courses, chapters, and content.
-- **Feedback Collection**: Gather user feedback on course experiences.
-- **User Enrollment**: Allow users to enroll in courses.
+### 1. User Authentication
+- Allow users to register accounts securely.
+- Enable users to log in and log out securely.
+- Implement password reset functionality.
+
+### 2. Account Settings
+- Enable users to change their passwords.
+- Allow users to delete their accounts securely.
+
+### 3. Course Management
+- Create, edit, and manage courses.
+- Organize courses into chapters and sections.
+- Upload and manage course content, such as lectures, quizzes, and assignments.
+
+### 4. Feedback Collection
+- Collect user feedback on course experiences.
+- Implement rating systems or surveys to gather user opinions and suggestions.
+- Analyze feedback to improve course content and user experience.
+
+### 5. User Enrollment
+- Allow users to enroll in courses of their choice.
+- Implement enrollment features, including joining, dropping, or registering for courses.
+- Track enrolled users and their progress within courses.
+
+### 6. Messaging System
+- Implement a notification system using toast messages for various events (success, error, etc.).
+- Display different types of messages (e.g., success, error) with custom colors and styles.
+
+### 7. User Interface (UI) Enhancements
+- Utilize Bootstrap for responsive design.
+- Implement tabs for easy navigation between account settings and security sections.
+- Enhance the user experience with interactive elements (e.g., forms, buttons).
+
+### 8. Security Measures
+- Implement secure password hashing.
+- Use Django's built-in authentication features to secure user data.
+
 
 ## Installation
 
