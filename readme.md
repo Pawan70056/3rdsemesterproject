@@ -13,7 +13,7 @@ This project is a Django web application for managing courses and collecting fee
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/khushburajak/assignment-web.git
+    git clone https://github.com/Pawan70056/3rdsemesterproject.git
     ```
 
 2. Create a virtual environment:
