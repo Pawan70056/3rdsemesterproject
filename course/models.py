@@ -153,3 +153,13 @@ class Ticket(models.Model):
     feedback_type = models.CharField(max_length=20, choices=[('complaint', 'Complaint'), ('suggestion', 'Suggestion')])
     severity = models.CharField(max_length=20, choices=[('low', 'Low'), ('medium', 'Medium'), ('high', 'High'), ('critical', 'Critical')])
     message = models.TextField()
+
+
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"
+
