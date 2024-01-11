@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback, ImprovementArea,
-                     MyCourses, Ticket)
+from .models import (Book, Chapter, ContactMessage, Content, Course,
+                     CourseCategory, Feedback, ImprovementArea, MyCourses,
+                     Ticket)
 
 
 # Define a mixin class to display thumbnails
@@ -109,3 +110,11 @@ class TicketAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return False
+    
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'message')
+    search_fields = ('name', 'email', 'message')
+    list_filter = ('name', 'email')
+
+    

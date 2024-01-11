@@ -15,6 +15,7 @@ urlpatterns = [
     path('my-courses/', views.my_courses, name='my_courses'),
     path('feedback/', views.feedback_submission, name='feedback_submission'),
     path('ticket/', views.ticket, name='ticket'),
+    path('contact/', views.contact_view, name='contact'),
 
 
 ]
