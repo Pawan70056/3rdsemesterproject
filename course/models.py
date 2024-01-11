@@ -145,3 +145,11 @@ class ImprovementArea(models.Model):
 
     def __str__(self):
         return self.area
+    
+
+class Ticket(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    feedback_type = models.CharField(max_length=20, choices=[('complaint', 'Complaint'), ('suggestion', 'Suggestion')])
+    severity = models.CharField(max_length=20, choices=[('low', 'Low'), ('medium', 'Medium'), ('high', 'High'), ('critical', 'Critical')])
+    message = models.TextField()
