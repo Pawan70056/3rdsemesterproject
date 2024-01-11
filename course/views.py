@@ -3,11 +3,12 @@ import json
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
+# views.py
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .froms import FeedbackForm
-from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback,
-                     MyCourses, Ticket)
+from .froms import ContactForm, FeedbackForm
+from .models import (Book, Chapter, ContactMessage, Content, Course,
+                     CourseCategory, Feedback, MyCourses, Ticket)
 
 
 def dashboard(request):
@@ -165,3 +166,23 @@ def ticket(request):
 
     # If the request is not a POST request, render the form
     return render(request, 'ticket.html')
+
+
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+            except Exception as e:
+                print(f"Error saving contact message: {e}")
+                messages.error(request,'Unable to send contact message, please try again')
+            messages.success(request,'contact message was sent, successfully')
+            return redirect('dashboard')
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
+
