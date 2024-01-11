@@ -24,3 +24,5 @@ urlpatterns = [
     path('', include('course.urls')),
     path('auth/',include('authentication.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'authentication.views.handler404'
