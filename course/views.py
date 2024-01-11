@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from .froms import FeedbackForm
 from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback,
-                     MyCourses)
+                     MyCourses, Ticket)
 
 
 def dashboard(request):
@@ -140,3 +140,28 @@ def feedback_submission(request):
         form = FeedbackForm()
 
     return render(request, 'feedback.html', {'form': form})
+
+
+
+def ticket(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        feedback_type = request.POST.get('feedbackType')
+        severity = request.POST.get('severity', '')  # Optional, may not be present if feedback_type is 'suggestion'
+        message = request.POST.get('message')
+
+        ticket = Ticket.objects.create(
+            name=name,
+            email=email,
+            feedback_type=feedback_type,
+            severity=severity,
+            message=message
+        )
+
+        # Optionally, you can return a JSON response to indicate success
+        messages.success(request, 'Ticket was created successfully')
+        return redirect('dashboard')
+
+    # If the request is not a POST request, render the form
+    return render(request, 'ticket.html')
