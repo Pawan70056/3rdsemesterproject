@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from .models import (Book, Chapter, Content, Course, CourseCategory, Feedback, ImprovementArea,
-                     MyCourses)
+                     MyCourses, Ticket)
 
 
 # Define a mixin class to display thumbnails
@@ -95,3 +95,17 @@ class ImprovementAreaAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         return False
 
+@admin.register(Ticket)
+class TicketAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'feedback_type', 'severity', 'message')
+    search_fields = ('name', 'email', 'feedback_type', 'severity', 'message')
+
+      # Disable add, update, and delete actions
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
