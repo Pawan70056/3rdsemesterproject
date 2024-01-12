@@ -165,3 +165,15 @@ header{
 .heading span{
     color: var(--green-color);
 }
+
+.courses{
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.courses-conatiner{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
