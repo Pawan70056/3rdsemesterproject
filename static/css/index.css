@@ -99,4 +99,17 @@ header{
      transition: background 0.5s;
  }
  
- 
+ #menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+.container img{
+    width: 320px;
+    right: 200px;
+    top: 200px;
+    height: auto;
+    padding:0%;
+}
