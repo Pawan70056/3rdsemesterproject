@@ -31,3 +31,14 @@
     background: var(--green-color);
     border-radius: 5rem;
 }
+
+section{
+    padding: 4.5rem 0 1.5rem;
+    margin: 40px;
+}
+img {
+    width: 100%;
+}
+body{
+    color: var(--text-color)
+}
