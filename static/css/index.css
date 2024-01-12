@@ -291,3 +291,22 @@ header{
     font-size: 20px;
     color: var(--light-orange-color);
 }
+
+.about{
+    max-width: 968px;
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+}
+.about-text span{
+    font-weight: 650px;
+    text-transform: uppercase;
+    color: var(--green-color);
+    padding: 650px;
+}
+.about-text p{
+    margin: o.5rem 0 1rem;
+    text-align: center;
+}
