@@ -113,3 +113,17 @@ header{
     height: auto;
     padding:0%;
 }
+
+.home-text{
+    padding:  200px;
+}
+.home-text span{
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--green-color);
+}
+.home-text h1{
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
