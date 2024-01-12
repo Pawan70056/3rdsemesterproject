@@ -20,3 +20,14 @@
     --text-color: #1a2428;
     --bg-color: #fff ;
 }
+
+/* Custom Scroll Bar */
+::-webkit-scrollbar{
+    width: 0.5rem;
+    background: var(--light-green-color);
+}
+::-webkit-scrollbar-thumb{
+    width: 0.5rem;
+    background: var(--green-color);
+    border-radius: 5rem;
+}
