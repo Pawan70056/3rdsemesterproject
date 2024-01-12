@@ -310,3 +310,29 @@ header{
     margin: o.5rem 0 1rem;
     text-align: center;
 }
+
+.btn{
+    background: var(--green-color);
+    color: var(--bg-color);
+    font-weight: 400;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 00.5rem;
+    max-width: 160px;
+    text-align: center;
+}
+.btn .bx{
+    padding: 4px;
+    align-items:end;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 1rem;
+    font-size: 20px;
+    margin: auto;   
+}
+.btn:hover{
+    background: var(--light-orange-color);
+    transition: 0.2s ease;
+}
