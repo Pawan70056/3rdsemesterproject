@@ -67,3 +67,16 @@ header{
     font-size: 13px;
     font-weight: 500;
 }
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    column-gap: 0.5rem;
+}
+.logo .bx{
+    font-size: 24px;
+    color: var(--orange-color)
+}
