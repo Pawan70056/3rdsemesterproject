@@ -392,3 +392,24 @@ header{
     font-size: 1rem;
     font-weight: 600;
 }
+
+.footer{
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,auto));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    background: #fef4ea;
+    border-radius: 0.5rem;
+    padding: 20px;
+}
+.footer-box{
+    display: flex;
+    flex-direction: column;
+}
+.footer-box p{
+    font-size: 0.938rem;
+    margin: 0.5rem 0 1rem;
+}
