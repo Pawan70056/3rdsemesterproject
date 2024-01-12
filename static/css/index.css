@@ -336,3 +336,41 @@ header{
     background: var(--light-orange-color);
     transition: 0.2s ease;
 }
+
+.students{
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.students h2{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.students-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.students-container .box{
+    padding: 20px;
+    box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+    border-radius: 0.5rem;
+    border-bottom: 7px solid var(--green-color);
+}
+.students-container .box:hover{
+    transform: translateY(10px);
+    transition: 0.2s all linear;
+}
+.students-container .box .bx{
+    font-size: 24px;
+    color: var(--green-color);
+}
+.students-container .box .stars .bx{
+    font-size: 1rem;
+    color: var(--light-orange-color);
+}
+.students-container .box p{
+    font-size: 0.538rem;
+}
