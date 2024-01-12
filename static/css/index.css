@@ -413,3 +413,21 @@ header{
     font-size: 0.938rem;
     margin: 0.5rem 0 1rem;
 }
+
+.social{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+.social .bx{
+    padding: 10px;
+    background: var(--bg-color);
+    color:var(--green-color);
+    border-radius: 5rem;
+    font-size: 20px;
+}
+.social .bx:hover{
+    background: var(--green-color);
+    color: var(--bg-color);
+    transition: 0.2s all linear;
+}
