@@ -63,6 +63,13 @@ header{
     height: auto;
 }
 
+.notification{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    cursor: pointer;
+}
+
 .profile{
     display: flex;
     align-items: center;
