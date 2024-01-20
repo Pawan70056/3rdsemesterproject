@@ -57,6 +57,12 @@ header{
     transition: 0.5s;
 }
 
+.search-form{
+    border: 0px;
+    background: #868a92;
+    height: auto;
+}
+
 .profile{
     display: flex;
     align-items: center;
