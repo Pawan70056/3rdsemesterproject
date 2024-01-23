@@ -20,6 +20,7 @@
     --text-color: #1a2428;
     --bg-color: #fff ;
 }
+
 /* Custom Scroll Bar */
 ::-webkit-scrollbar{
     width: 0.5rem;
@@ -30,6 +31,7 @@
     background: var(--green-color);
     border-radius: 5rem;
 }
+
 section{
     padding: 4.5rem 0 1.5rem;
     margin: 40px;
@@ -54,6 +56,20 @@ header{
     padding: 20px 100px;
     transition: 0.5s;
 }
+
+.search-form{
+    border: 0px;
+    background: #868a92;
+    height: auto;
+}
+
+.notification{
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    cursor: pointer;
+}
+
 .profile{
     display: flex;
     align-items: center;
@@ -64,6 +80,7 @@ header{
     font-size: 13px;
     font-weight: 500;
 }
+
 .logo{
     display: flex;
     align-items: center;
@@ -76,25 +93,26 @@ header{
     font-size: 24px;
     color: var(--orange-color)
 }
-.navbar{
-   display: flex;
-   column-gap: 0.5rem;
-}
-.navbar a{
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-}
-.navbar a:hover,
-.navbar .home-active {
-    background: var(--green-color);
-    border-radius: 5rem;
-    color: var(--bg-color);
-    transition: background 0.5s;
-}
 
-#menu-icon{
+.navbar{
+    display: flex;
+    column-gap: 0.5rem;
+ }
+ .navbar a{
+     font-size: 1rem;
+     font-weight: 500;
+     color: var(--text-color);
+     padding: 0.5rem 1rem;
+ }
+ .navbar a:hover,
+ .navbar .home-active {
+     background: var(--green-color);
+     border-radius: 5rem;
+     color: var(--bg-color);
+     transition: background 0.5s;
+ }
+ 
+ #menu-icon{
     font-size: 24px;
     cursor: pointer;
     z-index: 10001;
@@ -122,6 +140,7 @@ header{
     font-weight: 700;
     margin-bottom: 1rem;
 }
+
 .button{
     padding: 0.6rem 1rem;
     background: var(--green-color);
@@ -146,6 +165,7 @@ header{
     background: var(--light-orange-color);
     transition: 0.2s ease;
 }
+
 .heading{
     display: flex;
     justify-content: space-between;
@@ -158,6 +178,7 @@ header{
 .heading span{
     color: var(--green-color);
 }
+
 .courses{
     max-width: 968px;
     margin-left: auto;
@@ -169,6 +190,7 @@ header{
     gap: 1rem;
     margin-top: 2rem;
 }
+
 .courses-conatiner .box{
     position: relative;
     display: flex;
@@ -226,6 +248,7 @@ header{
 .box5{
     background: #f7f6d9;
 }
+
 .progress{
     max-width: 968px;
     margin-left: auto;
@@ -281,6 +304,7 @@ header{
     font-size: 20px;
     color: var(--light-orange-color);
 }
+
 .about{
     max-width: 968px;
     display: flex;
@@ -299,6 +323,7 @@ header{
     margin: o.5rem 0 1rem;
     text-align: center;
 }
+
 .btn{
     background: var(--green-color);
     color: var(--bg-color);
@@ -324,6 +349,7 @@ header{
     background: var(--light-orange-color);
     transition: 0.2s ease;
 }
+
 .students{
     max-width: 968px;
     margin-left: auto;
@@ -361,6 +387,7 @@ header{
 .students-container .box p{
     font-size: 0.538rem;
 }
+
 .review-profile{
     display: flex;
     align-items: center;
@@ -378,6 +405,7 @@ header{
     font-size: 1rem;
     font-weight: 600;
 }
+
 .footer{
     max-width: 968px;
     margin-left: auto;
@@ -398,6 +426,7 @@ header{
     font-size: 0.938rem;
     margin: 0.5rem 0 1rem;
 }
+
 .social{
     display: flex;
     align-items: center;
@@ -415,6 +444,7 @@ header{
     color: var(--bg-color);
     transition: 0.2s all linear;
 }
+
 .footer-box h2{
     font-size: 1.1rem;
     font-weight: 600;
@@ -447,6 +477,7 @@ header{
 .footer-box form .bxs-envelope{
     color: var(--green-color);
 }
+
 /* Making Responsive */
 @media (max-width:1080px){
     header{
@@ -590,3 +621,9 @@ header{
         gap:1.5rem;
     }
 }
+
+ 
+
+
+
+

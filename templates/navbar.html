@@ -13,10 +13,21 @@
         <li><a href="/" class="home-active">Home</a></li>
         <li><a href="/all-courses">Courses</a></li>
         <li><a href="#progress">Progress</a></li>
-        <li><a href="#students">Students</a></li>
         <li><a href="{% url 'contact' %}">Contact Us</a></li>
         
     </ul>
+
+    <!-- search bar -->
+    <form class="search-form">
+        <input type="search" id="search-box" placeholder="Search Here....">
+        <label for="search-box" class='bx bx-search'></label>
+    </form>       
+
+    <!-- notification -->
+    <div class="notification">
+        <i class='bx bxs-bell'></i>
+    </div>
+    
     <!-- profile -->
     {% if user.is_authenticated %}
     <!-- Profile for authenticated users -->
