@@ -186,3 +186,19 @@ def contact_view(request):
 
     return render(request, 'contact.html', {'form': form})
 
+
+
+
+def search_results(request):
+    query = request.GET.get('query', '')
+    print(query)
+    
+    course_results = Course.objects.filter(title__icontains=query)
+    
+    context = {
+        'query': query,
+        'course_results': course_results,
+    }
+    
+    return render(request, 'search_results.html', context)
+
