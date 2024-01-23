@@ -163,3 +163,14 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 MESSAGE_LEVEL = messages.DEBUG
 LOGIN_URL = '/auth/login/'
+
+#  Emial Settings
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ymilan361@gmail.com'
+EMAIL_HOST_PASSWORD = 'tshy gwog drwb ivbl'
+
