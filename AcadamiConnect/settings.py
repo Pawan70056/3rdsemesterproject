@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'AcadamiConnect',
         'USER': 'postgres',
-        'PASSWORD': 'mko0',
+        'PASSWORD': '123',
         'HOST': 'localhost',
         'PORT': '5432',
     }
