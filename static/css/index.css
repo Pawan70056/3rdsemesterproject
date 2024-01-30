@@ -121,6 +121,23 @@ header{
     width: 100%;
     object-fit: cover;
 }
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-100%);
+    }
+    45% {
+        transform: translateX(-100%);
+    }
+}
+
+
+
 .navbar{
     display: flex;
     column-gap: 0.5rem;
