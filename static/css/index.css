@@ -511,6 +511,10 @@ header{
 .footer-box a:hover{
     color: var(--light-orange-color);
 }
+.footer-box2 a:hover{
+    color: var(--light-orange-color);
+    
+}
 .footer-box form{
     border-bottom: 1px solid var(--text-color);
     padding: 10px;
