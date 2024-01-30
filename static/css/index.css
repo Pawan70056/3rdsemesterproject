@@ -113,6 +113,11 @@ header{
     width: 44%;
     overflow: hidden;
 }
+.slider {
+    display: flex;
+    animation: slide 9s infinite;
+}
+
 
 
 .navbar{
