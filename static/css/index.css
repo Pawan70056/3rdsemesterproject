@@ -207,11 +207,7 @@ header{
     transition: 0.2s ease;
 }
 
-.heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .heading h1{
     font-size: 1.6rem;
     font-weight: 600;
