@@ -102,6 +102,15 @@ header{
     margin-right: auto;
 }
 
+.text-container {
+    width: 56%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 .navbar{
     display: flex;
     column-gap: 0.5rem;
