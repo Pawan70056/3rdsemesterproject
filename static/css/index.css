@@ -494,7 +494,11 @@ header{
     color: var(--bg-color);
     transition: 0.2s all linear;
 }
-
+.footer-box2 h2{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
 .footer-box h2{
     font-size: 1.1rem;
     font-weight: 600;
