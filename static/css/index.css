@@ -207,11 +207,6 @@ header{
     transition: 0.2s ease;
 }
 
-
-.heading h1{
-    font-size: 1.6rem;
-    font-weight: 600;
-}
 .heading span{
     color: var(--green-color);
 }
