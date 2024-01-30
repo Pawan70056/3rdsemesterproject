@@ -182,10 +182,6 @@ header{
     height: auto;
     padding:0%;
 }
-
-
-
-
 .button{
     padding: 0.6rem 1rem;
     background: var(--green-color);
