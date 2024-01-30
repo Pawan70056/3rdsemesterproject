@@ -93,6 +93,14 @@ header{
     font-size: 24px;
     color: var(--orange-color)
 }
+.home {
+    /* background: #F6F6F6; */
+    display: flex;
+    justify-content: space-between;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .navbar{
     display: flex;
