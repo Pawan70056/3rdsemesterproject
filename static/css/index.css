@@ -515,7 +515,7 @@ header{
     color: var(--light-orange-color);
     
 }
-.footer-box form{
+.footer-box2 form{
     border-bottom: 1px solid var(--text-color);
     padding: 10px;
     display: flex;
