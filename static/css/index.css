@@ -109,6 +109,10 @@ header{
     flex-direction: column;
     justify-content: center;
 }
+.img-container {
+    width: 44%;
+    overflow: hidden;
+}
 
 
 .navbar{
