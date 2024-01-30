@@ -444,9 +444,12 @@ header{
     border-radius: 0.5rem;
     padding: 20px; /* Adjusted to create space within the box */
 }
-.footer-box{
+.footer-box {
     display: flex;
     flex-direction: column;
+    padding: 20px; /* Adjusted to create space within the box */
+    margin-left: 25px; /* Adjusted inner left margin */
+    margin-right: 25px; /* Adjusted inner right margin */
 }
 .footer-box p{
     font-size: 0.938rem;
