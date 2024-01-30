@@ -473,6 +473,10 @@ header{
     font-size: 0.938rem;
     margin: 0.5rem 0 1rem;
 }
+.footer-box1 p{
+    font-size: 0.938rem;
+    margin: 0.5rem 0 1rem;
+}
 .social{
     display: flex;
     align-items: center;
