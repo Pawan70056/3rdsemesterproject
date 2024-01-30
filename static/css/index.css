@@ -527,11 +527,10 @@ header{
     border: none;
     outline: none;
 }
-.footer-box2 form .bx{
+.footer-box form .bx{
     font-size: 20px;
     color: var(--light-orange-color);
     cursor: pointer;
-    margin-left: -0px;
 }
 .footer-box form .bxs-envelope{
     color: var(--green-color);
