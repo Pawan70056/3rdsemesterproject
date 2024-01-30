@@ -206,11 +206,6 @@ header{
     background: var(--light-orange-color);
     transition: 0.2s ease;
 }
-
-.heading span{
-    color: var(--green-color);
-}
-
 .courses{
     max-width: 968px;
     margin-left: auto;
