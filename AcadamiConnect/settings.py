@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
+
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -95,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'AcadamiConnect',
         'USER': 'postgres',
-        'PASSWORD': '123456789',
+        'PASSWORD': 'mko0',
         'HOST': 'localhost',
         'PORT': '5432',
     }

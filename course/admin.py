@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from .models import (Book, Chapter, ContactMessage, Content, Course,
-                     CourseCategory, Feedback, ImprovementArea, MyCourses,
-                     Ticket)
+                     CourseCategory, Feedback, ImprovementArea, Instructor,
+                     MyCourses, Ticket)
 
 
 # Define a mixin class to display thumbnails
@@ -117,4 +117,6 @@ class ContactMessageAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'message')
     list_filter = ('name', 'email')
 
-    
+@admin.register(Instructor)
+class InstructorAdmin(admin.ModelAdmin):
+    list_display = ('profile',)

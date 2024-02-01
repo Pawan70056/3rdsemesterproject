@@ -14,10 +14,8 @@
   /* hide radio buttons */
   
   input[name="star"] {
-    display: inline-block;
     width: 0;
     opacity: 0;
-    margin-left: 2px;
   }
   
   /* hide source svg */
@@ -39,11 +37,6 @@
   
   /* set direction to row-reverse so 5th star is at the end and ~ can be used to fill all sibling stars that precede last starred element*/
   
-  .star-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-  }
   
   label:hover ~ label .star,
   svg.star:hover,

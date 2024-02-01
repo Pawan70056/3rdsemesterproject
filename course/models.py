@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from authentication.models import Profile
+
 
 class CourseCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -11,12 +13,16 @@ class CourseCategory(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Instructor(models.Model):
+    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+
 
 class Course(models.Model):
     title = models.CharField(max_length=100)
     description =RichTextField()
     thumbnail = models.ImageField()
-    instructor = models.CharField(max_length=50)
+    instructor = models.ForeignKey(Instructor, related_name='courses', on_delete=models.CASCADE)
     category = models.ForeignKey(CourseCategory, related_name='courses', on_delete=models.CASCADE)
     
     created_at = models.DateTimeField(auto_now_add=True, editable=False)

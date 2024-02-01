@@ -52,8 +52,11 @@ def coursebycategory(request, category_id):
     return render(request, 'courseByCategory.html', context)
 
 
+
+
 def course_detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
+    
     return render(request, 'courseDetails.html', {'course': course})
 
 
