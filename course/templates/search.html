@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Search Results for "{{ query }}"</h1>
+
+  {% if results %}
+    <ul>
+      {% for course in results %}
+        <li>
+          <h2><a href="{% url 'course_detail' course.id %}">{{ course.title }}</a></h2>
+          <p>{{ course.description|striptags|truncatechars:150 }}</p>
+          <p>Instructor: {{ course.instructor }}</p>
+          <p>Category: {{ course.category.name }}</p>
+          <small>Created at: {{ course.created_at|date }}</small>
+          <hr />
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No results found.</p>
+  {% endif %}
+{% endblock %}

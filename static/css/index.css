@@ -93,6 +93,62 @@ header{
     font-size: 24px;
     color: var(--orange-color)
 }
+.home {
+    /* background: #F6F6F6; */
+    display: flex;
+    justify-content: space-between;
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-container {
+    width: 56%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.img-container {
+    width: 44%;
+    overflow: hidden;
+}
+.slider {
+    display: flex;
+    animation: slide 9s infinite;
+}
+.slider img {
+    width: 100%;
+    object-fit: cover;
+}
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-100%);
+    }
+    45% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-200%);
+    }
+    70% {
+        transform: translateX(-200%);
+    }
+    75% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
 
 .navbar{
     display: flex;
@@ -126,21 +182,6 @@ header{
     height: auto;
     padding:0%;
 }
-
-.home-text{
-    padding:  200px;
-}
-.home-text span{
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--green-color);
-}
-.home-text h1{
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
 .button{
     padding: 0.6rem 1rem;
     background: var(--green-color);
@@ -165,20 +206,6 @@ header{
     background: var(--light-orange-color);
     transition: 0.2s ease;
 }
-
-.heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.heading h1{
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-.heading span{
-    color: var(--green-color);
-}
-
 .courses{
     max-width: 968px;
     margin-left: auto;
@@ -406,27 +433,50 @@ header{
     font-weight: 600;
 }
 
-.footer{
-    max-width: 968px;
-    margin-left: auto;
-    margin-right: auto;
+.footer {
+    max-width: 100%; /* Adjusted to ensure it takes the full width */
+    margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,auto));
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
     gap: 1.5rem;
     margin-top: 2rem;
     background: #fef4ea;
     border-radius: 0.5rem;
-    padding: 20px;
+    padding: 20px; /* Adjusted to create space within the box */
 }
-.footer-box{
+.footer-box {
     display: flex;
     flex-direction: column;
+    padding: 20px; /* Adjusted to create space within the box */
+    margin-left: 25px; /* Adjusted inner left margin */
+    margin-right: 25px; /* Adjusted inner right margin */
+}
+.footer-box1 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Adjusted to create space within the box */
+    margin-left: 150px; /* Adjusted inner left margin */
+    margin-right: 0px; /* Adjusted inner right margin */
+}
+.footer-box2 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Adjusted to create space within the box */
+    margin-left: 50px; /* Adjusted inner left margin */
+    margin-right: 50px; /* Adjusted inner right margin */
 }
 .footer-box p{
     font-size: 0.938rem;
     margin: 0.5rem 0 1rem;
 }
-
+.footer-box2 p{
+    font-size: 0.938rem;
+    margin: 0.5rem 0 1rem;
+}
+.footer-box1 p{
+    font-size: 0.938rem;
+    margin: 0.5rem 0 1rem;
+}
 .social{
     display: flex;
     align-items: center;
@@ -444,7 +494,11 @@ header{
     color: var(--bg-color);
     transition: 0.2s all linear;
 }
-
+.footer-box2 h2{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
 .footer-box h2{
     font-size: 1.1rem;
     font-weight: 600;
@@ -457,24 +511,29 @@ header{
 .footer-box a:hover{
     color: var(--light-orange-color);
 }
-.footer-box form{
+.footer-box2 a:hover{
+    color: var(--light-orange-color);
+    
+}
+.footer-box2 form{
     border-bottom: 1px solid var(--text-color);
     padding: 10px;
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
 }
-.footer-box form input{
+.footer-box2 form input{
     background: transparent;
     border: none;
     outline: none;
 }
-.footer-box form .bx{
+.footer-box2 form .bx{
     font-size: 20px;
     color: var(--light-orange-color);
     cursor: pointer;
+    margin-left: -0px;
 }
-.footer-box form .bxs-envelope{
+.footer-box2 form .bxs-envelope{
     color: var(--green-color);
 }
 

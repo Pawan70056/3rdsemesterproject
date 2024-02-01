@@ -10,7 +10,10 @@ from .froms import ContactForm, FeedbackForm
 from .models import (Book, Chapter, ContactMessage, Content, Course,
                      CourseCategory, Feedback, MyCourses, Ticket)
 
+from django.db.models import Q
 
+from django.shortcuts import render
+from .models import Course
 def dashboard(request):
     # Retrieve all course categories
     course_categories = CourseCategory.objects.all()
@@ -189,16 +192,14 @@ def contact_view(request):
 
 
 
-def search_results(request):
-    query = request.GET.get('query', '')
-    print(query)
-    
-    course_results = Course.objects.filter(title__icontains=query)
-    
-    context = {
-        'query': query,
-        'course_results': course_results,
-    }
-    
-    return render(request, 'search_results.html', context)
+def search(request):
+    query = request.GET.get('q')
+
+    if query:
+        results = Course.objects.filter(title__icontains=query).distinct()
+    else:
+        results = []
+
+    context = {'query': query, 'results': results}
+    return render(request, 'search.html', context)
 

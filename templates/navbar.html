@@ -15,12 +15,12 @@
     <li><a href="{% url 'contact' %}">Contact Us</a></li>
   </ul>
 
-  <!-- search bar -->
-  <form class="search-form" method="get" action="{% url 'search_results' %}">
-    <input type="search" id="search-box" placeholder="Search Here...." />
-    <label for="search-box" class="bx bx-search">
-    </label>
-  </form>
+    <!-- search bar -->
+   
+    <form class="form-inline" action="/search/" method="get">
+        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>   
 
   <!-- notification -->
   <div class="notification">

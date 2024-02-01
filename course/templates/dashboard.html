@@ -4,43 +4,27 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-
+<!-- Add the Swiper CSS file -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 {% endblock head %}
 
 {% block content %}
-<section class="home swiper" id="home">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide container">
-            <div class="home-text">
-                <span>We are Academi-Connect</span>
-                <h1>Choose The Best Notes <br>For You</h1>
-                <a href="#" class="button"> Learn Now<i class='bx bx-right-arrow-alt'></i></a>
-            </div>
-            <img src="{% static "img/machine learning.png" %}" alt="">
+<section class="home">
+    <div class="text-container">
+        <span>We are Academi-Connect</span>
+        <h1>Choose The Best Notes <br>For You</h1>
+        <a href="#" class="button">Learn Now<i class='bx bx-right-arrow-alt'></i></a>
+    </div>
+    <div class="img-container">
+        <div class="slider">
+            <img src="{% static 'img/graduate1.png' %}" alt="">
+            <img src="{% static 'img/studying1.png' %}" alt="">
+            <img src="{% static 'img/machinelearning.png' %}" alt="">
+            <!-- Add more slides as needed -->
         </div>
-        <!-- Slide 2 -->
-        <div class="swiper-slide container">
-            <div class="home-text">
-                <span>We are Academi-Connect</span>
-                <h1>Choose The Best Notes <br>For You</h1>
-                <a href="#" class="button">Learn Now<i class='bx bx-right-arrow-alt'></i></a>
-            </div>
-            <img src="{% static "img/studying.png" %}" alt="">
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide container">
-                <div class="home-text">
-                    <span>We are Academi-Connect</span>
-                    <h1>Choose The Best Notes <br>For You</h1>
-                    <a href="#" class="button">Learn Now<i class='bx bx-right-arrow-alt'></i></a>
-                </div>
-                <img src="{% static "img/graduate.png" %}" alt="">
-                </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      
+    </div>
 </section>
+  
 <!-- courses -->
 <section class="courses" id="courses">
     <div class="heading">

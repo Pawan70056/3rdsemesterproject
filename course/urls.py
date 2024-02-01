@@ -16,8 +16,7 @@ urlpatterns = [
     path('feedback/', views.feedback_submission, name='feedback_submission'),
     path('ticket/', views.ticket, name='ticket'),
     path('contact/', views.contact_view, name='contact'),
-    path('search/', views.search_results, name='search_results'),
-
+    path('search/', views.search, name='search'),
 
 
 ]
