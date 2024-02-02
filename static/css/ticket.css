@@ -55,4 +55,8 @@
   button:hover {
     background-color: #F75F1D;
   }
+  .footer {
+    color: #28003b;
+    padding: 0.1rem;
+  }
   
