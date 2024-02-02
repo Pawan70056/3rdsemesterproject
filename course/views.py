@@ -2,18 +2,17 @@ import json
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponseRedirect, JsonResponse
 # views.py
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .froms import ContactForm, FeedbackForm
 from .models import (Book, Chapter, ContactMessage, Content, Course,
-                     CourseCategory, Feedback, MyCourses, Ticket)
+                     CourseCategory, Feedback, MyCourses, Ticket,
+                     UserChapterProgress)
 
-from django.db.models import Q
 
-from django.shortcuts import render
-from .models import Course
 def dashboard(request):
     # Retrieve all course categories
     course_categories = CourseCategory.objects.all()
@@ -206,3 +205,24 @@ def search(request):
     context = {'query': query, 'results': results}
     return render(request, 'search.html', context)
 
+from django.http import HttpResponse
+
+
+@login_required
+def mark_chapter_completed(request, chapter_id):
+    chapter = get_object_or_404(Chapter, pk=chapter_id)
+    user = request.user
+
+    # Check if the user has already marked this chapter as completed
+    user_progress, created = UserChapterProgress.objects.get_or_create(user=user, chapter=chapter)
+
+    if not user_progress.completed:
+        user_progress.completed = True
+        user_progress.save()
+        messages.success(request,'you have completed the chapter, congratulations!')
+
+    else:
+        messages.info(request,'you have already completed the chapter')
+
+    # Redirect back to the same page with a query parameter for the message
+    return HttpResponse(status=204)  # HTTP 204 No Content, as the response body is not required

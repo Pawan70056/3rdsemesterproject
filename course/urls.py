@@ -12,6 +12,7 @@ urlpatterns = [
     path('enroll/<int:course_id>/', views.enroll_course, name='enroll_course'),
     path('read/<int:course_id>/', views.read, name= "read"),
     path('get_chapter_content/<int:chapter_id>/', views.get_chapter_content, name='get_chapter_content'),
+    path('mark_completed/<int:chapter_id>/', views.mark_chapter_completed, name='mark_chapter_completed'),
     path('my-courses/', views.my_courses, name='my_courses'),
     path('feedback/', views.feedback_submission, name='feedback_submission'),
     path('ticket/', views.ticket, name='ticket'),

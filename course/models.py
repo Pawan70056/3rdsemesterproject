@@ -2,7 +2,7 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
+from django.db.models import UniqueConstraint
 from authentication.models import Profile
 
 
@@ -169,3 +169,13 @@ class ContactMessage(models.Model):
     def __str__(self):
         return f"{self.name} - {self.email}"
 
+class UserChapterProgress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE)
+    completed = models.BooleanField(default=False)
+
+    class Meta:
+        # Ensure each user can only have one progress entry per chapter
+        constraints = [
+            UniqueConstraint(fields=['user', 'chapter'], name='unique_user_chapter_progress')
+        ]
