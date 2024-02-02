@@ -3,7 +3,7 @@ h1 {
   font-size: 3rem;
   line-height: 2;
   margin-bottom: 4rem;
-  margin-left: 3rem;
+  
 }
 
 img {
@@ -59,10 +59,11 @@ button {
 
 /*Header*/
 .column-header {
+  padding: 50px;
   float: left;
-  width: 54%;
-  padding-top: 5rem;
-  margin-right: 6%;
+  width: 50%;
+  vertical-align: center;
+
 }
 
 .column-image {
